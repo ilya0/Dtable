@@ -1,4 +1,6 @@
 # Tested with Python 2.7.9, Linux & Mac OS X
+# Created a second server routine to test some stuff
+
 import socket
 import StringIO
 import sys
