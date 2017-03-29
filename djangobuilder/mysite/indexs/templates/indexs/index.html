@@ -1,0 +1,16 @@
+<!-- this is an index template that the view uses to create the page -->
+
+
+<h1>This is an index page at /polls/index </h1>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+      <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+
+
