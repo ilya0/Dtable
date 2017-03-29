@@ -5,7 +5,7 @@ from django.test import TestCase
 
 from .models import Question
 
-
+# these tests needs to be revised as per the django tutorial
 class QuestionMethodTests(TestCase):
 
     def test_was_published_recently_with_old_question(self):
