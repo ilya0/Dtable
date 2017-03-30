@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^', include('polls.urls', namespace='polls')),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^savedata/', include('savedata.urls')),
+
 ]

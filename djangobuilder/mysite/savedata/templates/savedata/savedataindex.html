@@ -1,0 +1,9 @@
+<h1>This is an index page at /savedataindex.html </h1>
+    <ul>
+    {% for name in latest_name_list %}
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Names are available.</p>
+{% endif %}
+
