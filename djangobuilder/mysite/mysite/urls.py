@@ -21,13 +21,14 @@ urlpatterns = [
 
     # url(r'^', include('polls.urls', namespace='polls')),
     #this is the original one
-
+# setting the root route to be the submitform
     url(r'^', include('savedata.urls', namespace='submitform')),
     #testing with the original route
 
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^savedata/', include('savedata.urls')),
+    url(r'^submitform/', include('savedata.urls')),
 
 
 ]

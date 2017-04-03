@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from django import forms
 
 # This is the controller for the app
 # and directs to what methods to go to
@@ -8,8 +9,9 @@ from . import views
 app_name = 'savedata'
 urlpatterns = [
     # index view
-    url(r'^savedataindex/$', views.IndexView.as_view(), name='savedataindex'),
-    url(r'savedata/submitform', views.get_name, name='submitform'),
+    # savedata index goes to save data index
+    url(r'^savedata/', views.IndexView.as_view(), name='savedataindex'),
+    url(r'^submitform/', views.submitformmethod.as_view(), name='submitform'),
 
 ]
 
