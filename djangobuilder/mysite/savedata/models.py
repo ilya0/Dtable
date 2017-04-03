@@ -13,3 +13,6 @@ class name(models.Model):
     # this is an automated date stamp with the date published title
     def __str__(self):
         return self.name
+
+
+# this is a model of the data going into the database
