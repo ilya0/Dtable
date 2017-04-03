@@ -8,7 +8,13 @@ from . import views
 app_name = 'savedata'
 urlpatterns = [
     # index view
-    url(r'^$', views.IndexView.as_view(), name='savedataindex'),
-    url(r'submitform', views.get_name, name='submitform'),
+    url(r'^savedataindex/$', views.IndexView.as_view(), name='savedataindex'),
+    url(r'savedata/submitform', views.get_name, name='submitform'),
 
 ]
+
+
+
+# urlpatterns = [
+#     url(r'^$', views.index),
+#     url(r'fetch$', views.fetch),

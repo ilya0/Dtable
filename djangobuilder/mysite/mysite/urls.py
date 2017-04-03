@@ -18,7 +18,13 @@ from django.contrib import admin
 
 urlpatterns = [
 # adding a an index and using polls as a test
-    url(r'^', include('polls.urls', namespace='polls')),
+
+    # url(r'^', include('polls.urls', namespace='polls')),
+    #this is the original one
+
+    url(r'^', include('savedata.urls', namespace='submitform')),
+    #testing with the original route
+
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^savedata/', include('savedata.urls')),
