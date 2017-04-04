@@ -75,11 +75,12 @@ def submitformroute(request):
             # ...
             # redirect to a new URL:
             return HttpResponseRedirect('/thanks/')
-
+        # else:
+        #     print(dir(form.errors))
     # if a GET (or any other method) we'll create a blank form
     else:
         form = NameForm()
 
-    return render(request, 'submitform.html', {'form': form})
+    return render(request, 'savedata/submitform.html', {'form': form})
 
 

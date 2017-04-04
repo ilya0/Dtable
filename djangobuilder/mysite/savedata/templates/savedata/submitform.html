@@ -1,16 +1,36 @@
 
 
 <form action="/submitformroute/" method="post">
-    <label for="your_name">Name: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ name }}">
-   <label for="your_name">Age:</label>
-    <input id="your_name" type="text" name="your_name" value="{{ age }}">
-   <label for="your_name">Location:</label>
-    <input id="your_name" type="text" name="your_name" value="{{ location }}">
+    <label for="name">Name: </label>
+    <input id="id_name" type="text" name="name" value="{{ name }}">
+   <label for="age">Age:</label>
+    <input id="id_age" type="text" name="age" value="{{ age }}">
+   <label for="location">Location:</label>
+    <input id="id_location" type="text" name="location" value="{{ location }}">
+
     <input type="submit" value="OK">
+
 {% csrf_token %}
+
+
 </form>
 
 
 
-
+  {% if form.errors %}
+    <div class="alert alert-error">
+      <h4>Please fix the following errors</h4>
+      <ul>
+        {% for field in form %}
+          {% if field.errors %}
+            {% for error in field.errors %}
+              <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% if form.non_field_errors %}
+        {{ form.non_field_errors }}
+      {% endif %}
+    </div>
+  {% endif %}
