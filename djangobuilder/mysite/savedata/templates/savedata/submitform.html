@@ -16,9 +16,11 @@
 <!-- another format test form -->
 
 <form action="/your-name/" method="post">
-    <label for="your_name">Thing 1: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
-   <label for="your_name">Thing 2: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <label for="your_name">Name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ name }}">
+   <label for="your_name">Age:</label>
+    <input id="your_name" type="text" name="your_name" value="{{ age }}">
+   <label for="your_name">Location:</label>
+    <input id="your_name" type="text" name="your_name" value="{{ location }}">
     <input type="submit" value="OK">
 </form>
