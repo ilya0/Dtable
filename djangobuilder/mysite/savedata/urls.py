@@ -15,8 +15,3 @@ urlpatterns = [
 
 ]
 
-
-
-# urlpatterns = [
-#     url(r'^$', views.index),
-#     url(r'fetch$', views.fetch),
