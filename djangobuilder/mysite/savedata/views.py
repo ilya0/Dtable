@@ -52,4 +52,34 @@ class IndexView(generic.ListView):
         return models.name.objects.order_by('-pub_date')[:5]
 
 
+#
+
+def submitformroute(request):
+    print("submitformroute accessed")
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        print("=== post hit")
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+
+        print("after post request if hit")
+        # check whether it's valid:
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            age = form.cleaned_data["age"]
+            location = form.cleaned_data["location"]
+            print(location)
+            print(age)
+            print(name)
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'submitform.html', {'form': form})
+
 

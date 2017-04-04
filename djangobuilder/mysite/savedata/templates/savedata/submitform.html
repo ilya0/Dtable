@@ -1,21 +1,6 @@
-<!-- <form action="/your-name/" method="post">
-    {% csrf_token %}
-    {{ form }}
-
-    <label for="team_name">Enter name: </label>
-    <input id="team_name" type="text" name="name_field" value="Default name for team.">
- Got a template idea from the net
-
-    <input type="submit" value="Submit" />
-</form>
-
- -->
 
 
-
-<!-- another format test form -->
-
-<form action="/your-name/" method="post">
+<form action="/submitformroute/" method="post">
     <label for="your_name">Name: </label>
     <input id="your_name" type="text" name="your_name" value="{{ name }}">
    <label for="your_name">Age:</label>
@@ -23,4 +8,9 @@
    <label for="your_name">Location:</label>
     <input id="your_name" type="text" name="your_name" value="{{ location }}">
     <input type="submit" value="OK">
+{% csrf_token %}
 </form>
+
+
+
+
