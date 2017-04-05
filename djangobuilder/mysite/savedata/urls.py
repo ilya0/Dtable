@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^submitform/', views.submitformmethod.as_view(), name='submitform'),
     #creating submit route, dont know if it is going to work yet
     url(r'^submitformroute/', views.submitformroute, name='submitformroute'),
+    url(r'^thanks/', views.thanks.as_view(), name='thanks'),
 
 ]
 

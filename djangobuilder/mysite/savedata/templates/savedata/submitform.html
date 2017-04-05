@@ -3,11 +3,16 @@
 <form action="/submitformroute/" method="post">
     <label for="name">Name: </label>
     <input id="id_name" type="text" name="name" value="{{ name }}">
-   <label for="age">Age:</label>
+
+    <label for="age">Age:</label>
     <input id="id_age" type="text" name="age" value="{{ age }}">
-   <label for="location">Location:</label>
+
+    <label for="location">Location:</label>
     <input id="id_location" type="text" name="location" value="{{ location }}">
 
+<!--     <label for="pub_date">Date:</label>
+    <input id="id_pub_date" type="text" name="pub_date"  value="{{ pub_date }}">
+ -->
     <input type="submit" value="OK">
 
 {% csrf_token %}
@@ -15,7 +20,7 @@
 
 </form>
 
-
+<!-- this is the code for error handling -->
 
   {% if form.errors %}
     <div class="alert alert-error">
