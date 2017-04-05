@@ -59,7 +59,9 @@ class IndexView(generic.ListView):
         return models.name.objects.order_by('-pub_date')[:5]
 
 
-#
+def redirect(request):
+    return HttpResponseRedirect('savedata/submitform')
+
 
 def submitformroute(request):
     print("submitformroute accessed")
