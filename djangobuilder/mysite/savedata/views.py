@@ -8,6 +8,17 @@ from .forms import NameForm
 from django import forms
 import datetime
 
+
+#this is the index view method
+class IndexView(generic.ListView):
+    template_name = 'savedata/savedataindex.html'
+    context_object_name = 'latest_name_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return models.name.objects.order_by('-pub_date')[:5]
+
+
 # this method is not working, currently using the same as index method
 ######
 def get_name(request):
@@ -28,6 +39,7 @@ def get_name(request):
 
     return render(request, 'submitform.html', {'form': form})
 
+#returns the thanks page
 class thanks(generic.ListView):
     template_name = 'savedata/thanks.html'
     # context_object_name = 'latest_name_list'
@@ -47,22 +59,17 @@ class submitformmethod(generic.ListView):
         return models.name.objects.order_by('-pub_date')[:5]
 
 
+# def index(request):
+#     list_of_people = Person.objects.all()
+#     context = { 'list_of_people': list_of_people }
+#     return render(request, 'dylapp/index.html', context)
 
 
-#this is the index view method
-class IndexView(generic.ListView):
-    template_name = 'savedata/savedataindex.html'
-    context_object_name = 'latest_name_list'
-
-    def get_queryset(self):
-        """Return the last five published questions."""
-        return models.name.objects.order_by('-pub_date')[:5]
 
 
-def redirect(request):
-    return HttpResponseRedirect('savedata/submitform')
 
 
+# submitform route method sends the data to the database and then
 def submitformroute(request):
     print("submitformroute accessed")
     # if this is a POST request we need to process the form data
@@ -82,15 +89,6 @@ def submitformroute(request):
             print(age)
             print(name)
             # print(date)
-
-        # demo of how to create a save objects
-        # # creating an user object containing all the data
-        # user_obj = User(username=username, email=email, password=password)
-        # # saving all the data in the current object into the database
-        # user_obj.save()
-
-
-
             myVar = models.name()
 
             myVar.name = name
@@ -102,7 +100,7 @@ def submitformroute(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('/submitform/')
         # else:
         #     print(dir(form.errors))
     # if a GET (or any other method) we'll create a blank form
@@ -110,5 +108,21 @@ def submitformroute(request):
         form = NameForm()
 
     return render(request, 'savedata/submitform.html', {'form': form})
+
+
+
+
+class thanks(generic.ListView):
+    template_name = 'savedata/thanks.html'
+    # context_object_name = 'latest_name_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return models.name.objects.order_by('-pub_date')[:5]
+
+
+
+def redirect(request):
+    return HttpResponseRedirect('savedata/submitform')
 
 

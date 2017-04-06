@@ -1,6 +1,12 @@
+<!-- the submitform will be used as the index and will have the
+submit form as well as the database table display
+-->
 
 
-<form action="/submitformroute/" method="post">
+
+
+<!-- Submit form section -->
+ <form action="/submitformroute/" method="post">
     <label for="name">Name: </label>
     <input id="id_name" type="text" name="name" value="{{ name }}">
 
@@ -17,8 +23,9 @@
 {% csrf_token %}
 </form>
 
-<!-- This is where the data from the database is goign to populate -->
 
+
+<!-- This is where the data from the database is goign to populate -->
 <html>
     <head>
         <title>This is the table </title>
@@ -30,8 +37,6 @@
         {% if categories %}
             <ul>
                 {% for user in categories %}
-                <li>{{ category.name }}</li>
-                <li>{{ category.name }}</li>
                 <li>{{ category.name }}</li>
                 {% endfor %}
             </ul>
