@@ -50,7 +50,7 @@ class thanks(generic.ListView):
 
 
 #this is the submit form method
-class submitformmethod(generic.ListView):
+class submitform(generic.ListView):
     template_name = 'savedata/submitform.html'
     context_object_name = 'latest_name_list'
 

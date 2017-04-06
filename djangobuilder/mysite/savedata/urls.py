@@ -11,7 +11,7 @@ urlpatterns = [
     # index view
     # savedata index goes to save data index
     url(r'^savedata/', views.IndexView.as_view(), name='savedataindex'),
-    url(r'^submitform/', views.submitformmethod.as_view(), name='submitform'),
+    url(r'^submitform/', views.submitform.as_view(), name='submitform'),
     #creating submit route, dont know if it is going to work yet
     url(r'^submitformroute/', views.submitformroute, name='submitformroute'),
     url(r'^thanks/', views.thanks.as_view(), name='thanks'),
