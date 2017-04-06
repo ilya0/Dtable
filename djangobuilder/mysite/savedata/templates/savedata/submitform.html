@@ -29,12 +29,14 @@
 
         {% if categories %}
             <ul>
-                {% for category in categories %}
+                {% for user in categories %}
+                <li>{{ category.name }}</li>
+                <li>{{ category.name }}</li>
                 <li>{{ category.name }}</li>
                 {% endfor %}
             </ul>
         {% else %}
-            <strong>There are no categories present.</strong>
+            <strong>There are no users present.</strong>
         {% endif %}
 
         <a href="/rango/about/">About</a>
