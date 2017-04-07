@@ -6,7 +6,7 @@ submit form as well as the database table display
 
 
 <!-- Submit form section -->
- <form action="/submitformroute/" method="post">
+ <form action="/submitform/" method="post">
     <label for="name">Name: </label>
     <input id="id_name" type="text" name="name" value="{{ name }}">
 
@@ -23,9 +23,7 @@ submit form as well as the database table display
 {% csrf_token %}
 </form>
 
- <form action="/show/" method="post">
-    <input type="submit" value="OK">
-</form>
+
 
 
 

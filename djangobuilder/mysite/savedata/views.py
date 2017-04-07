@@ -9,14 +9,6 @@ from django import forms
 import datetime
 
 
-#this is the index view method
-class IndexView(generic.ListView):
-	template_name = 'savedata/savedataindex.html'
-	context_object_name = 'latest_name_list'
-
-	def get_queryset(self):
-		"""Return the last five published questions."""
-		return models.name.objects.order_by('-pub_date')[:5]
 
 
 # demo index view to show data base table
@@ -53,13 +45,23 @@ def get_name(request):
 # 		return render(request, 'savedata/show.html', context)
 
 
-
 def redirect(request):
 	return HttpResponseRedirect('savedata/submitform')
 
 
+
+
+
 ###########working methods
 
+#this is the index view method
+class IndexView(generic.ListView):
+	template_name = 'savedata/savedataindex.html'
+	context_object_name = 'latest_name_list'
+
+	def get_queryset(self):
+		"""Return the last five published questions."""
+		return models.name.objects.order_by('-pub_date')[:5]
 
 
 
@@ -128,12 +130,50 @@ class thanks(generic.ListView):
 
 
 
+# class show(generic.ListView):
+# 	template_name = 'savedata/show.html'
+# 	# context_object_name = 'latest_name_list'
+
+# 	def get_queryset(self):
+# 		"""Return the last five published questions."""
+# 		return models.name.objects.order_by('-pub_date')[:5]
+
+
+
+####### Re-writing the show view
+# class show(generic.ListView):
+# 	model = name
+# 	print("model = name ")
+# 	print(model)
+
+# 	#model is a place holder, name is the name of the model already created
+# 	context_object_name = 'thing'
+# 	#your own name for the list as a template variable'
+# 	queryset = name.objects.filter(id__icontains='5') # get names containing a
+# 	print("queryset")
+# 	print(queryset)
+# 	template_name = 'savedata/show.html'
+
+
+
+## testing another way
 class show(generic.ListView):
 	template_name = 'savedata/show.html'
-	# context_object_name = 'latest_name_list'
+	context_object_name = 'thing'
 
 	def get_queryset(self):
 		"""Return the last five published questions."""
+		print(models.name.objects.order_by('-pub_date')[:5])
 		return models.name.objects.order_by('-pub_date')[:5]
+
+
+
+# #this is another way to write it
+# class show(generic.ListView):
+# 	model = name
+
+# 	def get_queryset(self):
+# 		return name.objects.filter(id__icontains='5')[:5]
+
 
 
