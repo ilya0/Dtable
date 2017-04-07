@@ -4,8 +4,6 @@ from django.urls import reverse
 from django.views import generic
 from . import models
 from .models import name
-
-# imports all the info from the models file
 from .forms import NameForm
 from django import forms
 import datetime
@@ -26,9 +24,6 @@ class IndexView(generic.ListView):
 #     listofthings = name.objects.all()
 #     context = { 'listofthings': listofthings }
 #     return render(request, 'dylapp/index.html', context)
-
-
-
 
 
 # this method is not working, currently using the same as index method
@@ -52,6 +47,22 @@ def get_name(request):
 	return render(request, 'submitform.html', {'form': form})
 
 
+# def show(request):
+# 	listofthings = name.objects.all()
+# 	context = {'listofthings': listofthings}
+# 		return render(request, 'savedata/show.html', context)
+
+
+
+def redirect(request):
+	return HttpResponseRedirect('savedata/submitform')
+
+
+###########working methods
+
+
+
+
 #this is the submit form method
 class submitform(generic.ListView):
 	template_name = 'savedata/submitform.html'
@@ -60,10 +71,6 @@ class submitform(generic.ListView):
 	def get_queryset(self):
 		"""Return the last five published questions."""
 		return models.name.objects.order_by('-pub_date')[:5]
-
-
-
-
 
 
 
@@ -111,14 +118,6 @@ def submitformroute(request):
 
 
 
-
-def show(request):
-	listofthings = name.objects.all()
-	context = {'listofthings': listofthings}
-		return render(request, 'savedata/show.html', context)
-
-
-
 class thanks(generic.ListView):
 	template_name = 'savedata/thanks.html'
 	# context_object_name = 'latest_name_list'
@@ -129,7 +128,12 @@ class thanks(generic.ListView):
 
 
 
-def redirect(request):
-	return HttpResponseRedirect('savedata/submitform')
+class show(generic.ListView):
+	template_name = 'savedata/show.html'
+	# context_object_name = 'latest_name_list'
+
+	def get_queryset(self):
+		"""Return the last five published questions."""
+		return models.name.objects.order_by('-pub_date')[:5]
 
 

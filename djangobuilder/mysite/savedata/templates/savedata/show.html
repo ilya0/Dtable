@@ -9,8 +9,8 @@
 <table>
     <tr>
       <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th>Name</th>
+        <th>age</th>
     </tr>
     {% for thing in listofthings %}
     <tr>
@@ -19,7 +19,11 @@
         <td>{{ thing.age }}</td>
     </tr>
     {% endfor %}
+        {% csrf_token %}
 </table>
+
         <a href="/submitformroute">About</a>
+            {% csrf_token %}
     </body>
+
 </html>
