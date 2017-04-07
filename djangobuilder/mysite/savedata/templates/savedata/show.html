@@ -1,0 +1,25 @@
+<!-- This is where the data from the database is goign to populate -->
+<html>
+    <head>
+        <title>This is the table </title>
+    </head>
+
+    <body>
+        <h1>Dtable Display</h1>
+<table>
+    <tr>
+      <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    {% for thing in listofthings %}
+    <tr>
+      <td>{{ thing.id }}</td>
+        <td>{{ thing.name }}</td>
+        <td>{{ thing.age }}</td>
+    </tr>
+    {% endfor %}
+</table>
+        <a href="/submitformroute">About</a>
+    </body>
+</html>
