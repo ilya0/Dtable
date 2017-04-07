@@ -13,8 +13,9 @@ urlpatterns = [
     url(r'^savedata/', views.IndexView.as_view(), name='savedataindex'),
     url(r'^submitform/', views.submitform.as_view(), name='submitform'),
     url(r'^thanks/', views.thanks.as_view(), name='thanks'),
-    url(r'^show/', views.show.as_view(), name='name'),
-
+    # url(r'^show/', views.show.as_view(), name='name'),
+    #testing a def based view of show
+    url(r'show/', views.show),
     #submit form is the only non-class based view
     url(r'^submitformroute/', views.submitformroute, name='submitformroute'),
 

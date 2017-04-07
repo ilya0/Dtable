@@ -11,12 +11,6 @@ import datetime
 
 
 
-# demo index view to show data base table
-# def index(request):
-#     listofthings = name.objects.all()
-#     context = { 'listofthings': listofthings }
-#     return render(request, 'dylapp/index.html', context)
-
 
 # this method is not working, currently using the same as index method
 ######
@@ -140,7 +134,23 @@ class thanks(generic.ListView):
 
 
 
+
+### def based view
+
+def show(request):
+    thing = name.objects.all()
+    context = { 'thing': thing }  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/show.html', context)
+
+
+
+
+#class based view
 ####### Re-writing the show view
+
+## this works but does not show data
+
 # class show(generic.ListView):
 # 	model = name
 # 	print("model = name ")
@@ -156,15 +166,15 @@ class thanks(generic.ListView):
 
 
 
-## testing another way
-class show(generic.ListView):
-	template_name = 'savedata/show.html'
-	context_object_name = 'thing'
+## testing another way - this works but does not show data
+# class show(generic.ListView):
+# 	template_name = 'savedata/show.html'
+# 	context_object_name = 'thing'
 
-	def get_queryset(self):
-		"""Return the last five published questions."""
-		print(models.name.objects.order_by('-pub_date')[:5])
-		return models.name.objects.order_by('-pub_date')[:5]
+# 	def get_queryset(self):
+# 		"""Return the last five published questions."""
+# 		print(models.name.objects.order_by('-pub_date')[:5])
+# 		return models.name.objects.order_by('-pub_date')[:5]
 
 
 
