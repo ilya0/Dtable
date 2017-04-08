@@ -135,7 +135,7 @@ class thanks(generic.ListView):
 
 
 
-### def based view
+### def based view - this works with the regular routes
 
 def show(request):
     thing = name.objects.all()
@@ -155,7 +155,6 @@ def show(request):
 # 	model = name
 # 	print("model = name ")
 # 	print(model)
-
 # 	#model is a place holder, name is the name of the model already created
 # 	context_object_name = 'thing'
 # 	#your own name for the list as a template variable'
@@ -163,6 +162,15 @@ def show(request):
 # 	print("queryset")
 # 	print(queryset)
 # 	template_name = 'savedata/show.html'
+
+
+# #this is another way to write it
+# class show(generic.ListView):
+# 	model = name
+
+# 	def get_queryset(self):
+# 		return name.objects.filter(id__icontains='5')[:5]
+
 
 
 
@@ -176,14 +184,6 @@ def show(request):
 # 		print(models.name.objects.order_by('-pub_date')[:5])
 # 		return models.name.objects.order_by('-pub_date')[:5]
 
-
-
-# #this is another way to write it
-# class show(generic.ListView):
-# 	model = name
-
-# 	def get_queryset(self):
-# 		return name.objects.filter(id__icontains='5')[:5]
 
 
 
