@@ -1,5 +1,8 @@
+{%  load static %}
+
 <!DOCTYPE html>
 <html>
+
 
 <head>
 
@@ -8,15 +11,12 @@
 
     <title>DTables</title>
 
-    <link href="savedata/css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <link href="savedata/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
-
-    <link href="savedata/css/animate.css" rel="stylesheet">
-    <link href="savedata/css/style.css" rel="stylesheet">
-
-    <link href="savedata/css/main.css" rel="stylesheet">
+    <link href="{% static 'savedata/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/css/plugins/dataTables/datatables.min.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/css/main.css' %}" rel="stylesheet">
 
 </head>
 
@@ -27,11 +27,11 @@
     <div id="page-wrapper" class="gray-bg">
         <div class="row border-bottom">
         <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-	    	<ul class="nav navbar-top-links navbar-left" style="margin-left: 20px;">
-		    	<li>
-		    		<a class="navbar-brand" href="table-list.html">Table List </a>
-		    	</li>
-	    	</ul>
+        <ul class="nav navbar-top-links navbar-left" style="margin-left: 20px;">
+          <li>
+            <a class="navbar-brand" href="table-list.html">Table List</a>
+          </li>
+        </ul>
 
             <ul class="nav navbar-top-links navbar-right">
                 <li>
@@ -47,7 +47,7 @@
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
-                        <h1>DTables - Create the table to save the data</h1>
+                        <h1>DTables</h1>
                         <h2>User Defined Data Tables</h2>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="ibox-content">
                             <form role="form" class="form-inline">
-	                            <button type="button" class="btn btn-w-m btn-success" style="margin-bottom: 0;">Create Table</button>
+                              <button type="button" class="btn btn-w-m btn-success" style="margin-bottom: 0;">Create Table</button>
 
                             </form>
                         </div>
@@ -81,7 +81,7 @@
                     <div class="ibox-content">
 
                     <div class="table-responsive">
-						<div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite" style="padding-bottom: 8px;">Showing 1 to 14 of 14 entries</div>
+            <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite" style="padding-bottom: 8px;">Showing 1 to 14 of 14 entries</div>
 
                     <table class="table table-striped table-bordered table-hover dataTables-example" >
                     <thead>
@@ -92,27 +92,27 @@
                     </thead>
                     <tbody>
                     <tr class="gradeC">
-	                    <td>Table 1</td>
+                      <td>Table 1</td>
                         <td>
-	                        <button type="button" class="btn btn-xs btn-success" style="margin-bottom: 0;">Edit Columns</button>
-	                        <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Edit Data</button>
-	                    </td>
+                          <button type="button" class="btn btn-xs btn-success" style="margin-bottom: 0;">Edit Columns</button>
+                          <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Edit Data</button>
+                      </td>
                     </tr>
 
                     <tr class="gradeC">
-	                    <td>Table 2</td>
+                      <td>Table 2</td>
                         <td>
-	                        <button type="button" class="btn btn-xs btn-success" style="margin-bottom: 0;">Edit Columns</button>
-	                        <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Edit Data</button>
-	                    </td>
+                          <button type="button" class="btn btn-xs btn-success" style="margin-bottom: 0;">Edit Columns</button>
+                          <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Edit Data</button>
+                      </td>
                     </tr>
 
                     <tr class="gradeC">
-	                    <td>Table 3</td>
+                      <td>Table 3</td>
                         <td>
-	                        <button type="button" class="btn btn-xs btn-success" style="margin-bottom: 0;">Edit Columns</button>
-	                        <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Edit Data</button>
-	                    </td>
+                          <button type="button" class="btn btn-xs btn-success" style="margin-bottom: 0;">Edit Columns</button>
+                          <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Edit Data</button>
+                      </td>
                     </tr>
 
 
@@ -132,8 +132,8 @@
 
 
     <!-- Mainly scripts -->
-    <script src="js/jquery-2.1.1.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static 'savedata/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'savedata/js/bootstrap.min.js' %}"></script>
 
 
     <!-- Custom and plugin javascript -->
