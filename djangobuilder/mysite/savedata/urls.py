@@ -18,7 +18,10 @@ urlpatterns = [
     url(r'show/', views.show),
     #submit form is the only non-class based view
     url(r'^submitformroute/', views.submitformroute, name='submitformroute'),
-
+# this is going to be a get data url to query a db
+    # url(r'^getdata/', views.getdata, name='getdata'),
+# testing a get route to the show tables page
+    url(r'^tableslistpage/', views.tableslistpage, name='tableslistpage'),
 
 ]
 

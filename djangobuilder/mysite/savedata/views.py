@@ -143,6 +143,11 @@ def show(request):
     print(context)
     return render(request, 'savedata/show.html', context)
 
+def tableslistpage(request):
+    thing = name.objects.all() #query the database
+    context = { 'thing': thing }  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/table-list.html', context)
 
 
 
