@@ -143,11 +143,25 @@ def show(request):
     print(context)
     return render(request, 'savedata/show.html', context)
 
-def tableslistpage(request):
+def tablelist(request):
     thing = name.objects.all() #query the database
     context = { 'thing': thing }  #this is a dictonary
     print(context)
     return render(request, 'savedata/table-list.html', context)
+
+
+def editcolumns(request):
+    thing = name.objects.all() #query the database
+    context = { 'thing': thing }  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/edit-columns.html', context)
+
+
+def edittables(request):
+    thing = name.objects.all() #query the database
+    context = { 'thing': thing }  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/table-edit.html', context)
 
 
 

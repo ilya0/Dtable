@@ -21,7 +21,9 @@ urlpatterns = [
 # this is going to be a get data url to query a db
     # url(r'^getdata/', views.getdata, name='getdata'),
 # testing a get route to the show tables page
-    url(r'^tableslistpage/', views.tableslistpage, name='tableslistpage'),
+    url(r'^tablelist/', views.tablelist, name='tablelist'),
+    url(r'^editcolumns/', views.editcolumns, name='editcolumns'),
+    url(r'^edittables/', views.edittables, name='edittables'),
 
 ]
 
