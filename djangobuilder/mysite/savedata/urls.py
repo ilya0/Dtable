@@ -22,8 +22,12 @@ urlpatterns = [
     # url(r'^getdata/', views.getdata, name='getdata'),
 # testing a get route to the show tables page
     url(r'^tablelist/', views.tablelist, name='tablelist'),
+
     url(r'^editcolumns/', views.editcolumns, name='editcolumns'),
+
     url(r'^edittables/', views.edittables, name='edittables'),
+    # links to createtable method to submit a new name for a database
+    url(r'^createtable/', views.createtable, name='createtable'),
 
 ]
 

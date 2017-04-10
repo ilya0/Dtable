@@ -163,6 +163,13 @@ def edittables(request):
     print(context)
     return render(request, 'savedata/table-edit.html', context)
 
+def createtable(request):
+    thing = name.objects.all() #query the database
+    context = { 'thing': thing }  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/table-edit.html', context)
+
+
 
 
 #class based view
