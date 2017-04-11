@@ -164,7 +164,15 @@ def edittables(request):
     return render(request, 'savedata/table-edit.html', context)
 
 def createtable(request):
+	# submits data from input box to create new database
+
+    return render(request, 'savedata/table-edit.html', context)
+
+def rendertablepage(request):
+	#renders table page with data from database
+	# going to use this as a test currently
     thing = name.objects.all() #query the database
+
     context = { 'thing': thing }  #this is a dictonary
     print(context)
     return render(request, 'savedata/table-edit.html', context)
