@@ -144,6 +144,7 @@ def show(request):
     return render(request, 'savedata/show.html', context)
 
 def tablelist(request):
+    print("tablelist route hit")
     thing = name.objects.all() #query the database
     context = { 'thing': thing }  #this is a dictonary
     print(context)
@@ -151,6 +152,7 @@ def tablelist(request):
 
 
 def editcolumns(request):
+    print("editcolumns route hit")
     thing = name.objects.all() #query the database
     context = { 'thing': thing }  #this is a dictonary
     print(context)
@@ -158,6 +160,7 @@ def editcolumns(request):
 
 
 def edittables(request):
+    print("edit route hit")
     thing = name.objects.all() #query the database
     context = { 'thing': thing }  #this is a dictonary
     print(context)
@@ -165,6 +168,7 @@ def edittables(request):
 
 def createtable(request):
 	# submits data from input box to create new database
+    print("createtable route hit")
 
 	#get data from input box
 	#create new database with name and user id
@@ -178,6 +182,8 @@ def createtable(request):
         response_data = {}
 
         name = Name(name=post_text, author=request.user)
+        print("name of name in the createtable route is")
+        print(name)
         post.save()
 
         response_data['result'] = 'Create post successful!'
@@ -198,15 +204,16 @@ def createtable(request):
 
 
 def rendertablepage(request):
-
 	#renders table page with data from database
 	# going to use this as a test currently
+    print("rindertablepage route hit")
     thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
     context = { 'thing': thing }  #this is a dictonary
     print(context)
     return render(request, 'savedata/table-list.html', context)
 
 def deletetable(request):
+    print("delete route hit")
 
 	#renders table page with data from database
 	# going to use this as a test currently
