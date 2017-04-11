@@ -59,7 +59,7 @@ function deletetable() {
     $.ajax({
         url : "deletetable/", // the endpoint
         type : "POST", // http method
-        data : { the_post : $('#post-text').val() }, // data sent with the post request
+        data : { the_post : buttonidholder }, // data sent with the post request
 
         // handle a successful response
         success : function(json) {
@@ -76,6 +76,10 @@ function deletetable() {
         }
     });
 };
+
+
+
+
 
 
 

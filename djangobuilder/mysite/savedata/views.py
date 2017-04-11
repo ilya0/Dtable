@@ -185,7 +185,7 @@ def createtable(request):
         print("name of name in the createtable route is")
         print(name)
         post.save()
-
+##creating a response object that will display
         response_data['result'] = 'Create post successful!'
         response_data['postpk'] = name.pk
         response_data['text'] = name.text
