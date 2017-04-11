@@ -2,6 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+
+# this would be a user id store
 class name(models.Model):
     name = models.CharField(max_length=200)
     #name text

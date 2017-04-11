@@ -169,10 +169,32 @@ def createtable(request):
 	#get data from input box
 	#create new database with name and user id
 	#pull names
-	thing = name.objects.all()
+	# thing = name.objects.all()
 	#push results into the context
-	context = { 'thing': thing }
-	return render(request, 'savedata/table-edit.html', context)
+	# context = { 'thing': thing }
+
+    if request.method == 'POST':
+        post_text = request.POST.get('the_post')
+        response_data = {}
+
+        name = Name(name=post_text, author=request.user)
+        post.save()
+
+        response_data['result'] = 'Create post successful!'
+        response_data['postpk'] = name.pk
+        response_data['text'] = name.text
+        response_data['created'] = name.created.strftime('%B %d, %Y %I:%M %p')
+        response_data['author'] = name.author.username
+
+        return HttpResponse(
+            json.dumps(response_data),
+            content_type="application/json"
+        )
+    else:
+        return HttpResponse(
+            json.dumps({"nothing to see": "this isn't happening"}),
+            content_type="application/json"
+        )
 
 
 def rendertablepage(request):
