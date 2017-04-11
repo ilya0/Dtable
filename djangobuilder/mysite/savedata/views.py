@@ -166,15 +166,29 @@ def edittables(request):
 def createtable(request):
 	# submits data from input box to create new database
 
-    return render(request, 'savedata/table-edit.html', context)
+	#get data from input box
+	#create new database with name and user id
+	#pull names
+	thing = name.objects.all()
+	#push results into the context
+	context = { 'thing': thing }
+	return render(request, 'savedata/table-edit.html', context)
 
 
 def rendertablepage(request):
 
 	#renders table page with data from database
 	# going to use this as a test currently
-    thing = name.objects.all() #query the database
+    thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
+    context = { 'thing': thing }  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/table-list.html', context)
 
+def deletetable(request):
+
+	#renders table page with data from database
+	# going to use this as a test currently
+    thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
     context = { 'thing': thing }  #this is a dictonary
     print(context)
     return render(request, 'savedata/table-list.html', context)

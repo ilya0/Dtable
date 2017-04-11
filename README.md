@@ -17,6 +17,7 @@ input box gets saved in var
 var gets submitted to python route through javascript
 table gets saved
 
+-done
 Rerender method gets called
 table query gets saved in var
 var gets submitted to rerender method
