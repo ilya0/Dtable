@@ -5,24 +5,20 @@ Dtable project is to create a airtable type app
 djangobuilder is built with django frame work
 
 inspinia 
-
-table-edit
--shows tables and can edit data
-
-table-list
--list of all the users tables
-
-edit-columns
-- shows table and gives the ablility to edit the colums in the table
+Current Goals
+Poplulate table page with "fake tables"
 
 
-Current goals
-
--show table when at table-edit page
-- have ability to change tabled as table-edit page
 
 
-Process:
--create route to display page
--create method to get data when button is pressed
--display tables
+Process
+On submit click 
+input box gets saved in var
+var gets submitted to python route through javascript
+table gets saved
+
+Rerender method gets called
+table query gets saved in var
+var gets submitted to rerender method
+method then renders page and uses var to make new list
+html script uses the names and has a for loop that goes through all the var and creates a table of ptables
