@@ -73,41 +73,57 @@
 
                     <div class="ibox-content">
 
-                    <div class="table-responsive">
-						<div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite" style="padding-bottom: 8px;">Showing 1 to 14 of 14 entries</div>
+                      <div class="table-responsive">
 
-                    <table class="table table-striped table-bordered table-hover dataTables-example" >
+						             <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite" style="padding-bottom: 8px;">Showing 1 to 14 of 14 entries</div>
 
-                    <thead>
+                             <table class="table table-striped table-bordered table-hover dataTables-example" >
 
-                      <tr>
-                          <th>Name</th>
-                          <th>Age</th>
-                          <th>Location</th>
-                          <th>Pubdate</th>
-                      </tr>
+                                <thead>
 
-                    </thead>
+                                  <tr>
+                                      <th>Name</th>
+                                      <th>Age</th>
+                                      <th>Location</th>
+                                      <th>Pubdate</th>
+                                  </tr>
+
+                                </thead>
 
                     <tbody>
 
                     <tr class="gradeC">
                     </tr>
 
+
+
+<!-- this is the input boxes -->
                     <tr class="gradeC">
-	                    <td><input type="email" placeholder="Name" class="form-control"></td>
-	                    <td><input type="email" placeholder="Name" class="form-control"></td>
-	                    <td><input type="email" placeholder="Name" class="form-control"></td>
-	                    <td><input type="email" placeholder="Name" class="form-control"></td>
-	                    <td><input type="email" placeholder="Name" class="form-control"></td>
+                     <form action="/submitdata/" method="post">
+  	                    <td><input type="name" placeholder="Name" class="form-control"></td>
+  	                    <td><input type="age" placeholder="age" class="form-control"></td>
+  	                    <td><input type="location" placeholder="location" class="form-control"></td>
+  	                    <td><input type="email" placeholder="Pub Date" class="form-control"></td>
 
                         <td style="vertical-align: middle;">
-	                        <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Confirm</button>
-	                        <button type="button" class="btn btn-xs btn-default" style="margin-bottom: 0;">Cancel</button>
+	                       <!--  <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Confirm</button>
+	                        <button type="button" class="btn btn-xs btn-default" style="margin-bottom: 0;">Cancel</button> -->
+
+                          <input type="submit" value="OK">
+
+                          {% csrf_token %}
+                          </form>
 	                    </td>
+                    </tr>
+
+
+
+<!-- this is the list of items and buttons to change them -->
+
+                      <tr class="gradeC">
 
                     {% for item in thing %}
-                      <tr class="gradeC">
+
                         <td>{{ item.name }}</td>
                         <td>{{ item.age }}</td>
                         <td>{{ item.location }}</td>

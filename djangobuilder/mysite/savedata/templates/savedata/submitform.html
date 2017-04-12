@@ -4,7 +4,7 @@ submit form as well as the database table display
 
 
 <!-- Submit form section -->
- <form action="/submitformroute" method="post">
+ <form action="/submitdata/" method="post">
     <label for="name">Name: </label>
     <input id="id_name" type="text" name="name" value="{{ name }}">
 
@@ -13,9 +13,7 @@ submit form as well as the database table display
 
     <label for="location">Location:</label>
     <input id="id_location" type="text" name="location" value="{{ location }}">
-<!--     <label for="pub_date">Date:</label>
-    <input id="id_pub_date" type="text" name="pub_date"  value="{{ pub_date }}">
- -->
+
     <input type="submit" value="OK">
 
 {% csrf_token %}

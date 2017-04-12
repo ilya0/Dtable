@@ -11,13 +11,13 @@ urlpatterns = [
     #shows all the database items
     url(r'show/', views.show),
     #inputboxes to populate the database
-    url(r'^/submitform/', views.submitform.as_view(), name='submitform'),
-    #maybe able to DELETE
+    url(r'^submitform/', views.submitform.as_view(), name='submitform'),
+    #index page
     url(r'^savedata/', views.IndexView.as_view(), name='savedataindex'),
     #thanks page
     url(r'^thanks/', views.thanks.as_view(), name='thanks'),
-    #testing a def based view
-    url(r'^submitformroute/', views.submitformroute, name='submitformroute'),
+    #submitdata to database
+    url(r'^submitdata/', views.submitdata, name='submitdata'),
 #working routes
     # list of tables - add/delete/modify data
     url(r'^tablelist/', views.tablelist, name='tablelist'),

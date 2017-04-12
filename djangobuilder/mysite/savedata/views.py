@@ -58,7 +58,7 @@ class IndexView(generic.ListView):
 
 
 
-#this is the submit form method
+#this is the submit form view
 class submitform(generic.ListView):
 	template_name = 'savedata/submitform.html'
 	context_object_name = 'latest_name_list'
@@ -68,10 +68,19 @@ class submitform(generic.ListView):
 		return models.name.objects.order_by('-pub_date')[:5]
 
 
+# def submitform(request):
+#     print("delete route hit")
+
+#     #renders table page with data from database
+#     # going to use this as a test currently
+#     thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
+#     context = { 'thing': thing }  #this is a dictonary
+#     print(context)
+#     return render(request, 'savedata/submitform.html', context)
 
 # submitform route method sends the data to the database and then
-def submitformroute(request):
-	print("submitformroute accessed")
+def submitdata(request):
+	print("submitdata accessed")
 	# if this is a POST request we need to process the form data
 	if request.method == 'POST':
 		print("=== post hit")
