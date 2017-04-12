@@ -27,10 +27,10 @@ def get_name(request):
 			return HttpResponseRedirect('/thanks/')
 
 	# if a GET (or any other method) we'll create a blank form
-	else:
-		form = NameForm()
-	return render(request, 'submitform.html', {'form': form})
+        else:
+            form = NameForm()
 
+        return render(request, 'savedata/show.html', {'form': form})
 
 # def show(request):
 # 	listofthings = name.objects.all()
@@ -39,7 +39,7 @@ def get_name(request):
 
 
 def redirect(request):
-	return HttpResponseRedirect('savedata/submitform')
+    return HttpResponseRedirect('savedata/submitform')
 
 
 
@@ -220,6 +220,17 @@ def deletetable(request):
     context = { 'thing': thing }  #this is a dictonary
     print(context)
     return render(request, 'savedata/table-list.html', context)
+
+def adddata(request):
+    print("delete route hit")
+
+    #renders table page with data from database
+    # going to use this as a test currently
+    thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
+    context = { 'thing': thing }  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/adddata.html', context)
+
 
 
 

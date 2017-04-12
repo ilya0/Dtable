@@ -8,16 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>DTables </title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
-
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <link href="static/css/main.css" rel="stylesheet">
+    <link href="{% static 'savedata/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/css/plugins/dataTables/datatables.min.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'savedata/css/main.css' %}" rel="stylesheet">
 
 </head>
 
@@ -81,27 +77,21 @@
 						<div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite" style="padding-bottom: 8px;">Showing 1 to 14 of 14 entries</div>
 
                     <table class="table table-striped table-bordered table-hover dataTables-example" >
+
                     <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Type</th>
-                        <th>Nullable</th>
-                        <th>Length</th>
-                        <th>Default</th>
-                        <th>Commands</th>
-                    </tr>
+
+                      <tr>
+                          <th>Name</th>
+                          <th>Age</th>
+                          <th>Location</th>
+                          <th>Pubdate</th>
+                      </tr>
+
                     </thead>
+
                     <tbody>
+
                     <tr class="gradeC">
-	                    <td>1</td>
-	                    <td>Auto Increment</td>
-	                    <td>No</td>
-	                    <td>32</td>
-	                    <td></td>
-                        <td>
-	                        <button type="button" class="btn btn-xs btn-success" style="margin-bottom: 0;">Edit</button>
-	                        <button type="button" class="btn btn-xs btn-default" style="margin-bottom: 0;">Delete</button>
-	                    </td>
                     </tr>
 
                     <tr class="gradeC">
@@ -110,10 +100,28 @@
 	                    <td><input type="email" placeholder="Name" class="form-control"></td>
 	                    <td><input type="email" placeholder="Name" class="form-control"></td>
 	                    <td><input type="email" placeholder="Name" class="form-control"></td>
+
                         <td style="vertical-align: middle;">
 	                        <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Confirm</button>
 	                        <button type="button" class="btn btn-xs btn-default" style="margin-bottom: 0;">Cancel</button>
 	                    </td>
+
+                    {% for item in thing %}
+                      <tr class="gradeC">
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.age }}</td>
+                        <td>{{ item.location }}</td>
+                        <td>{{ item.pub_date }}</td>
+                          <td>
+                            <button type="button" id="{{ item.id }}" class=" editcolumnsbutton btn btn-xs btn-success" style="margin-bottom: 0;">Edit Columns</button>
+
+                            <button type="button" id="{{ item.id }}" class="editdatabutton btn btn-xs btn-primary" style="margin-bottom: 0;">Edit Data</button>
+
+                            <button type="button" id="{{ item.id }}" class=" deletebutton btn btn-xs btn-primary" style="margin-bottom: 0;">Delete Table</button>
+                        </td>
+                      </tr>
+                    {% endfor %}
+
                     </tr>
 
                     <tr class="gradeC">
@@ -122,10 +130,12 @@
 	                    <td>No</td>
 	                    <td>32</td>
 	                    <td></td>
+
                         <td>
 	                        <button type="button" class="btn btn-xs btn-success" style="margin-bottom: 0;">Edit</button>
 	                        <button type="button" class="btn btn-xs btn-default" style="margin-bottom: 0;">Delete</button>
 	                    </td>
+
                     </tr>
 
 
