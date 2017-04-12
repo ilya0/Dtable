@@ -10,16 +10,9 @@ Poplulate table page with "fake tables"
 
 
 
-
-Process
-On submit click 
-input box gets saved in var
-var gets submitted to python route through javascript
-table gets saved
-
--done
-Rerender method gets called
-table query gets saved in var
-var gets submitted to rerender method
-method then renders page and uses var to make new list
-html script uses the names and has a for loop that goes through all the var and creates a table of ptables
+Things to fix
+- templating stopped working
+- populate database with legitimate data
+- link edit page to data base to change data
+- create way to delete and change data
+- 

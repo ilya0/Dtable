@@ -152,11 +152,8 @@ def tablelist(request):
 
 
 def editcolumns(request):
-    print("editcolumns route hit")
-    thing = name.objects.all() #query the database
-    context = { 'thing': thing }  #this is a dictonary
-    print(context)
-    return render(request, 'savedata/edit-columns.html', context)
+ #needs method for
+        return render(request, 'savedata/edit-columns.html', context)
 
 
 def edittables(request):
