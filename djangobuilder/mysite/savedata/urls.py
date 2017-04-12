@@ -1,6 +1,5 @@
 from django.conf.urls import url
 from . import views
-from django import forms
 
 # This is the controller for the app
 # and directs to what methods to go to
@@ -8,8 +7,6 @@ from django import forms
 # when it accesses /polls this is the group to go to
 app_name = 'savedata'
 urlpatterns = [
-
-
     url(r'^savedata/', views.IndexView.as_view(), name='savedataindex'),
     url(r'^submitform/', views.submitform.as_view(), name='submitform'),
     url(r'^thanks/', views.thanks.as_view(), name='thanks'),
@@ -19,17 +16,14 @@ urlpatterns = [
     url(r'show/', views.show),
     #submit form is the only non-class based view
     url(r'^submitformroute/', views.submitformroute, name='submitformroute'),
-# this is going to be a get data url to query a db
-    # url(r'^getdata/', views.getdata, name='getdata'),
-# testing a get route to the show tables page
+
     url(r'^tablelist/', views.tablelist, name='tablelist'),
-    # url(r'^editcolumns/', views.editcolumns, name='editcolumns'),
+    url(r'^editcolumns/', views.editcolumns, name='editcolumns'),
     #testing new editcolumns
-    url(r'^editcolumns/(?P<table_id>[0-9]+)/$', views.editcolumns, name='editcolumns'),
+    # url(r'^editcolumns/(?P<table_id>[0-9]+)/$', views.editcolumns, name='editcolumns'),
 
     url(r'^edittables/', views.edittables, name='edittables'),
     # links to createtable method to submit a new name for a database
     url(r'^createtable/', views.createtable, name='createtable'),
-
 ]
 
