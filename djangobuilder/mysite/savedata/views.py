@@ -151,8 +151,11 @@ def tablelist(request):
 
 
 def editcolumns(request):
- #needs method for
-        return render(request, 'savedata/edit-columns.html', context)
+    print("tablelist route hit")
+    thing = name.objects.all() #query the database
+    context = { 'thing': thing }  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/edit-columns.html', context)
 
 
 def edittables(request):
@@ -221,43 +224,6 @@ def deletetable(request):
 
 
 
-#class based view
-####### Re-writing the show view
-
-## this works but does not show data
-
-# class show(generic.ListView):
-# 	model = name
-# 	print("model = name ")
-# 	print(model)
-# 	#model is a place holder, name is the name of the model already created
-# 	context_object_name = 'thing'
-# 	#your own name for the list as a template variable'
-# 	queryset = name.objects.filter(id__icontains='5') # get names containing a
-# 	print("queryset")
-# 	print(queryset)
-# 	template_name = 'savedata/show.html'
-
-
-# #this is another way to write it
-# class show(generic.ListView):
-# 	model = name
-
-# 	def get_queryset(self):
-# 		return name.objects.filter(id__icontains='5')[:5]
-
-
-
-
-## testing another way - this works but does not show data
-# class show(generic.ListView):
-# 	template_name = 'savedata/show.html'
-# 	context_object_name = 'thing'
-
-# 	def get_queryset(self):
-# 		"""Return the last five published questions."""
-# 		print(models.name.objects.order_by('-pub_date')[:5])
-# 		return models.name.objects.order_by('-pub_date')[:5]
 
 
 

@@ -16,3 +16,6 @@ Things to fix
 - link edit page to data base to change data
 - create way to delete and change data
 - 
+
+
+auto fill column names from data base on template

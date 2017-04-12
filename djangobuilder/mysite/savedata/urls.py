@@ -7,20 +7,24 @@ from . import views
 # when it accesses /polls this is the group to go to
 app_name = 'savedata'
 urlpatterns = [
-    url(r'^savedata/', views.IndexView.as_view(), name='savedataindex'),
-    url(r'^submitform/', views.submitform.as_view(), name='submitform'),
-    url(r'^thanks/', views.thanks.as_view(), name='thanks'),
-    # url(r'^show/', views.show.as_view(), name='name'),
-    #testing a def based view of show
-   #show route is the route that shows all the values and is workign ****
+
+#debug pages
+    #shows all the database items
     url(r'show/', views.show),
-    #submit form is the only non-class based view
+    #inputboxes to populate the database
+    url(r'^submitform/', views.submitform.as_view(), name='submitform'),
+    #maybe able to DELETE
+    url(r'^savedata/', views.IndexView.as_view(), name='savedataindex'),
+    #thanks page
+    url(r'^thanks/', views.thanks.as_view(), name='thanks'),
+    #testing a def based view
     url(r'^submitformroute/', views.submitformroute, name='submitformroute'),
 
+#working routes
+    # list of tables - add/delete/modify data
     url(r'^tablelist/', views.tablelist, name='tablelist'),
+    #add columns to table
     url(r'^editcolumns/', views.editcolumns, name='editcolumns'),
-    #testing new editcolumns
-    # url(r'^editcolumns/(?P<table_id>[0-9]+)/$', views.editcolumns, name='editcolumns'),
 
     url(r'^edittables/', views.edittables, name='edittables'),
     # links to createtable method to submit a new name for a database
