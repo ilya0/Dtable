@@ -44,7 +44,7 @@
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
-                        <h1>[Table Name]</h1>
+                        <h1>{{ title }}</h1>
                         <h2>Update Table Data - Edit Table Page - Shows data and can edit data</h2>
                 </div>
             </div>
@@ -100,11 +100,16 @@
 <!-- this is the input boxes -->
                     <tr class="gradeC">
                      <form action="/submitdata/" method="post">
-  	                    <td><input type="name" placeholder="Name" class="form-control"></td>
-  	                    <td><input type="age" placeholder="age" class="form-control"></td>
-  	                    <td><input type="location" placeholder="location" class="form-control"></td>
-  	                    <td><input type="email" placeholder="Pub Date" class="form-control"></td>
+  	                    <td><input id="id_name" type="text" name="name" value="{{ name }}">
+</td>
+  	                    <td>    <input id="id_age" type="text" name="age" value="{{ age }}">
+</td>
+  	                    <td><input id="id_location" type="text" name="location" value="{{ location }}"></td>
+  	                    <td>Pub data is automatic
 
+                        <!-- <input id="id_location" type="text" name="location" value="{{ location }}"> --></td>
+<!--                    <td><input type="email" placeholder="Pub Date" class="form-control"></td>
+ -->
                         <td style="vertical-align: middle;">
 	                       <!--  <button type="button" class="btn btn-xs btn-primary" style="margin-bottom: 0;">Confirm</button>
 	                        <button type="button" class="btn btn-xs btn-default" style="margin-bottom: 0;">Cancel</button> -->

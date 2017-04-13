@@ -111,14 +111,14 @@ def submitdata(request):
 			# redirect to a new URL:
 
 
-			return HttpResponseRedirect('/show/')
+			return HttpResponseRedirect('/adddata/')
 		# else:
 		#     print(dir(form.errors))
 	 # if a GET (or any other method) we'll create a blank form
 	else:
 		form = NameForm()
 
-	return render(request, 'savedata/show.html', {'form': form})
+	return render(request, 'savedata/adddata.html', {'form': form})
 
 
 
@@ -220,6 +220,9 @@ def rendertablepage(request):
     print(context)
     return render(request, 'savedata/table-list.html', context)
 
+
+
+
 def deletetable(request):
     print("delete route hit")
 
@@ -230,13 +233,18 @@ def deletetable(request):
     print(context)
     return render(request, 'savedata/table-list.html', context)
 
+
+
 def adddata(request):
     print("delete route hit")
 
     #renders table page with data from database
     # going to use this as a test currently
     thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
-    context = { 'thing': thing }  #this is a dictonary
+    # title = name.objects.all() #this needs to be changed to title of the database
+    context = { 'thing': thing,
+                'title': "Title passed in from selector",
+                }  #this is a dictonary
     print(context)
     return render(request, 'savedata/adddata.html', context)
 
