@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.views import generic
 from . import models
@@ -7,7 +7,7 @@ from .models import name
 from .forms import NameForm
 from django import forms
 import datetime
-
+import json
 
 
 
@@ -177,44 +177,53 @@ def edittables(request):
 
 
 
+# def createtable(request):
+# 	# submits data from input box to create new database
+#     print("createtable route hit")
+#     #get data from input box
+# 	#create new database with name and user id
+# 	#pull names
+# 	# thing = name.objects.all()
+# 	#push results into the context
+# 	# context = { 'thing': thing }
+
+
+#     if request.method == 'POST':
+#         post_text = request.POST.get('the_post')
+#         response_data = {}
+
+#         name = Name(name=post_text, author=request.user)
+#         print("name of name in the createtable route is")
+#         print(name)
+#         post.save()
+#         ##creating a response object that will display
+#         response_data['result'] = 'Create post successful!'
+#         response_data['postpk'] = name.pk
+#         response_data['text'] = name.text
+#         response_data['created'] = name.created.strftime('%B %d, %Y %I:%M %p')
+#         response_data['author'] = name.author.username
+
+#         return HttpResponse(
+#             json.dumps(response_data),
+#             content_type="application/json"
+#         )
+#     else:
+#         return HttpResponse(
+#             json.dumps({"nothing to see": "this isn't happening"}),
+#             content_type="application/json"
+#         )
+
+##testing new way of creating a route
+
 def createtable(request):
-	# submits data from input box to create new database
-    print("createtable route hit")
-    #get data from input box
-	#create new database with name and user id
-	#pull names
-	# thing = name.objects.all()
-	#push results into the context
-	# context = { 'thing': thing }
-    if request.method == 'POST':
-        post_text = request.POST.get('the_post')
-        response_data = {}
+    print("####create table route hit ######")
+    post_text = request.POST.get('the_post')
+    print("*******text box value is "+post_text)
 
-        name = Name(name=post_text, author=request.user)
-        print("name of name in the createtable route is")
-        print(name)
-        post.save()
-        ##creating a response object that will display
-        response_data['result'] = 'Create post successful!'
-        response_data['postpk'] = name.pk
-        response_data['text'] = name.text
-        response_data['created'] = name.created.strftime('%B %d, %Y %I:%M %p')
-        response_data['author'] = name.author.username
-
-        return HttpResponse(
-            json.dumps(response_data),
-            content_type="application/json"
-        )
-    else:
-        return HttpResponse(
-            json.dumps({"nothing to see": "this isn't happening"}),
-            content_type="application/json"
-        )
-
-
-
-
-
+    return HttpResponse(
+        json.dumps({"nothing to see": "this isn't happening"}),
+        content_type="application/json"
+    )
 
 
 
