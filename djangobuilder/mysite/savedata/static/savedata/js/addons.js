@@ -23,7 +23,7 @@ $('#post-form').on('submit', function(event){
 function create_post() {
     console.log("create table (create_post) route hit") // sanity check
     $.ajax({
-        url : "tablelist/createtable/", // the endpoint
+        url : "createtable/", // the endpoint
         type : "POST", // http method
         data : { the_post : $('#post-text').val() }, // data sent with the post request
 

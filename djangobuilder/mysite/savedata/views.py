@@ -155,7 +155,7 @@ def tablelist(request):
     print("tablelist route hit")
     thing = name.objects.all() #query the database
     context = { 'thing': thing }  #this is a dictonary
-    print(context)
+    # print(context)
     return render(request, 'savedata/table-list.html', context)
 
 
@@ -232,7 +232,7 @@ def createtable(request):
 def rendertablepage(request):
 	#renders table page with data from database
 	# going to use this as a test currently
-    print("rindertablepage route hit")
+    print("rendertablepage route hit")
     thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
     context = { 'thing': thing }  #this is a dictonary
     print(context)
@@ -254,7 +254,7 @@ def deletetable(request):
 
 #route which submits data to a table
 def adddata(request):
-    print("delete route hit")
+    print("adddata route hit")
 
     #renders table page with data from database
     # going to use this as a test currently
