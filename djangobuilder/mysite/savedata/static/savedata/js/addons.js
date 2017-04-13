@@ -1,20 +1,27 @@
-$("button").click(function() {
-    alert(this.id); // or alert($(this).attr('id'));
+// $("button").click(function() {
+//     alert(this.id); // or alert($(this).attr('id'));
+// });
+
+$("Submit").click(function() {
+    alert($('#post-text').val()); // or alert($(this).attr('id'));
 });
+
 
 var buttonidholder;
 
 // Submit post on submit
 $('#post-form').on('submit', function(event){
-  alert(this.id)
+  alert($('#post-text').val())
     event.preventDefault();
     console.log("form submitted!"); // sanity check
     create_post();
 });
 
+
+
 function create_post() {
     console.log("create post is working!"); // sanity check
-    console.log($('#post-text').val());
+    console.log("text box input is"+$('#post-text').val()); //sanity check
 };
 
 

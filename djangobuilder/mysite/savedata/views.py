@@ -174,17 +174,18 @@ def edittables(request):
     print(context)
     return render(request, 'savedata/table-edit.html', context)
 
+
+
+
 def createtable(request):
 	# submits data from input box to create new database
     print("createtable route hit")
-
-	#get data from input box
+    #get data from input box
 	#create new database with name and user id
 	#pull names
 	# thing = name.objects.all()
 	#push results into the context
 	# context = { 'thing': thing }
-
     if request.method == 'POST':
         post_text = request.POST.get('the_post')
         response_data = {}
@@ -193,7 +194,7 @@ def createtable(request):
         print("name of name in the createtable route is")
         print(name)
         post.save()
-##creating a response object that will display
+        ##creating a response object that will display
         response_data['result'] = 'Create post successful!'
         response_data['postpk'] = name.pk
         response_data['text'] = name.text
@@ -211,6 +212,14 @@ def createtable(request):
         )
 
 
+
+
+
+
+
+
+
+
 def rendertablepage(request):
 	#renders table page with data from database
 	# going to use this as a test currently
@@ -222,7 +231,7 @@ def rendertablepage(request):
 
 
 
-
+## currently unused
 def deletetable(request):
     print("delete route hit")
 
@@ -234,12 +243,13 @@ def deletetable(request):
     return render(request, 'savedata/table-list.html', context)
 
 
-
+#route which submits data to a table
 def adddata(request):
     print("delete route hit")
 
     #renders table page with data from database
     # going to use this as a test currently
+    #***Need to add a variable to hold the table name
     thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
     # title = name.objects.all() #this needs to be changed to title of the database
     context = { 'thing': thing,

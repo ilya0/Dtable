@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^thanks/', views.thanks.as_view(), name='thanks'),
     #submitdata to database
     url(r'^submitdata/', views.submitdata, name='submitdata'),
-#working routes
+    #working routes
     # list of tables - add/delete/modify data
     url(r'^tablelist/', views.tablelist, name='tablelist'),
     #add columns to table
