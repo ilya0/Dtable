@@ -215,13 +215,14 @@ def edittables(request):
 
 ##testing new way of creating a route
 
+# http://127.0.0.1:8000/createtable/
 def createtable(request):
     print("####create table route hit ######")
     post_text = request.POST.get('the_post')
     print("*******text box value is "+post_text)
 
     return HttpResponse(
-        json.dumps({"nothing to see": "this isn't happening"}),
+        json.dumps({"post_text is": post_text}),
         content_type="application/json"
     )
 
