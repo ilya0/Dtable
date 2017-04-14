@@ -11,24 +11,19 @@ var buttonidholder;
 
 // Submit post on submit
 $('#post-form').on('submit', function(event){
-  alert($('#post-text').val())
+  alert("textbox value is"+$('#post-text').val())
     event.preventDefault();
-    console.log("form submitted!"); // sanity check
+    console.log("post form ajax hit"); // sanity check
     create_post();
 });
 
 
 
-function create_post() {
-    console.log("create post is working!"); // sanity check
-    console.log("text box input is"+$('#post-text').val()); //sanity check
-};
-
 
 function create_post() {
-    console.log("create post is working!") // sanity check
+    console.log("create table (create_post) route hit") // sanity check
     $.ajax({
-        url : "createtable/", // the endpoint
+        url : "../createtable/", // the endpoint
         type : "POST", // http method
         data : { the_post : $('#post-text').val() }, // data sent with the post request
 

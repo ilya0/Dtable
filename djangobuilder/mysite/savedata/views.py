@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.views import generic
 from . import models
@@ -7,7 +7,7 @@ from .models import name
 from .forms import NameForm
 from django import forms
 import datetime
-
+import json
 
 
 
@@ -155,7 +155,7 @@ def tablelist(request):
     print("tablelist route hit")
     thing = name.objects.all() #query the database
     context = { 'thing': thing }  #this is a dictonary
-    print(context)
+    # print(context)
     return render(request, 'savedata/table-list.html', context)
 
 
@@ -177,44 +177,54 @@ def edittables(request):
 
 
 
+# def createtable(request):
+# 	# submits data from input box to create new database
+#     print("createtable route hit")
+#     #get data from input box
+# 	#create new database with name and user id
+# 	#pull names
+# 	# thing = name.objects.all()
+# 	#push results into the context
+# 	# context = { 'thing': thing }
+
+
+#     if request.method == 'POST':
+#         post_text = request.POST.get('the_post')
+#         response_data = {}
+
+#         name = Name(name=post_text, author=request.user)
+#         print("name of name in the createtable route is")
+#         print(name)
+#         post.save()
+#         ##creating a response object that will display
+#         response_data['result'] = 'Create post successful!'
+#         response_data['postpk'] = name.pk
+#         response_data['text'] = name.text
+#         response_data['created'] = name.created.strftime('%B %d, %Y %I:%M %p')
+#         response_data['author'] = name.author.username
+
+#         return HttpResponse(
+#             json.dumps(response_data),
+#             content_type="application/json"
+#         )
+#     else:
+#         return HttpResponse(
+#             json.dumps({"nothing to see": "this isn't happening"}),
+#             content_type="application/json"
+#         )
+
+##testing new way of creating a route
+
+# http://127.0.0.1:8000/createtable/
 def createtable(request):
-	# submits data from input box to create new database
-    print("createtable route hit")
-    #get data from input box
-	#create new database with name and user id
-	#pull names
-	# thing = name.objects.all()
-	#push results into the context
-	# context = { 'thing': thing }
-    if request.method == 'POST':
-        post_text = request.POST.get('the_post')
-        response_data = {}
+    print("####create table route hit ######")
+    post_text = request.POST.get('the_post')
+    print("*******text box value is "+post_text)
 
-        name = Name(name=post_text, author=request.user)
-        print("name of name in the createtable route is")
-        print(name)
-        post.save()
-        ##creating a response object that will display
-        response_data['result'] = 'Create post successful!'
-        response_data['postpk'] = name.pk
-        response_data['text'] = name.text
-        response_data['created'] = name.created.strftime('%B %d, %Y %I:%M %p')
-        response_data['author'] = name.author.username
-
-        return HttpResponse(
-            json.dumps(response_data),
-            content_type="application/json"
-        )
-    else:
-        return HttpResponse(
-            json.dumps({"nothing to see": "this isn't happening"}),
-            content_type="application/json"
-        )
-
-
-
-
-
+    return HttpResponse(
+        json.dumps({"post_text is": post_text}),
+        content_type="application/json"
+    )
 
 
 
@@ -223,7 +233,7 @@ def createtable(request):
 def rendertablepage(request):
 	#renders table page with data from database
 	# going to use this as a test currently
-    print("rindertablepage route hit")
+    print("rendertablepage route hit")
     thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
     context = { 'thing': thing }  #this is a dictonary
     print(context)
@@ -245,7 +255,7 @@ def deletetable(request):
 
 #route which submits data to a table
 def adddata(request):
-    print("delete route hit")
+    print("adddata route hit")
 
     #renders table page with data from database
     # going to use this as a test currently
