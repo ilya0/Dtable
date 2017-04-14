@@ -61,12 +61,25 @@ def printdatabases():
     for table in meta.tables:
         print table
 
-printdatabases()
+
 
 
 
 # The reflect() method automatically creates Table entries in the MetaData object for any table available in the database but not yet present in the MetaData.
 
+def inspectortest():
+    tablename = "savedata_name"
+    insp = inspect(eng)
+    print insp.get_table_names()
+    #get the names of available tables
+    print insp.get_columns(tablename)
+    #get columns get the names of columns in the tables
+    print insp.get_primary_keys(tablename)
+    #gets teh primary keys of the
+    print insp.get_schema_names()
+    #returns all the schema names
+
+inspectortest()
 
 
 
