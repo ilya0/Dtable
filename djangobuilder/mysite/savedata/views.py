@@ -16,6 +16,7 @@ print("##sql alchemy version##  "+sqlalchemy.__version__)
 
 
 # things needed for sqlalchemy
+
 # this is the connection to the database
 eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/DTabledatabase')
 # creates a meta object to hold all the things
@@ -60,12 +61,10 @@ def printdatabases():
 
     for table in meta.tables:
         print table
-
-
-
-
-
 # The reflect() method automatically creates Table entries in the MetaData object for any table available in the database but not yet present in the MetaData.
+
+
+
 
 def inspectortest():
     tablename = "savedata_name"
@@ -80,6 +79,9 @@ def inspectortest():
     #returns all the schema names
 
 inspectortest()
+
+# The Inspector performs low-level database schema inspection. An Inspector is created with the inspect() method.
+
 
 
 
