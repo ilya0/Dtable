@@ -11,8 +11,62 @@ import json
 from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 import sqlalchemy
-
+#sqlachemey print version
 print("##sql alchemy version##  "+sqlalchemy.__version__)
+
+
+# things needed for sqlalchemy
+# this is the connection to the database
+eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/DTabledatabase')
+# creates a meta object to hold all the things
+meta = MetaData()
+
+
+
+
+
+
+
+def alchemytest():
+    cars = Table('Cars', meta,
+         Column('Id', Integer, primary_key=True),
+         Column('Name', String),
+         Column('Price', Integer)
+    )
+# We create a metadata definition of a Cars table. The table has three columns, defined with the Column class. The datatypes of columns are defined with the Integer and String classes.
+    print "The Name column:"
+    print cars.columns.Name
+    print cars.c.Name
+
+    print "Columns: "
+    for col in cars.c:
+        print col
+
+    print "Primary keys:"
+    for pk in cars.primary_key:
+        print pk
+
+    print "The Id column:"
+    print cars.c.Id.name
+    print cars.c.Id.type
+    print cars.c.Id.nullable
+    print cars.c.Id.primary_key
+
+
+
+#this prints all the tables in in the database
+def printdatabases():
+    meta.reflect(bind=eng)
+
+    for table in meta.tables:
+        print table
+
+printdatabases()
+
+
+
+# The reflect() method automatically creates Table entries in the MetaData object for any table available in the database but not yet present in the MetaData.
+
 
 
 
