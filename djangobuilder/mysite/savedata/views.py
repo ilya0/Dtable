@@ -29,14 +29,31 @@ meta = MetaData()
 Base = declarative_base()
 
 
-def createtabletest():
+# create table test method
+# http://127.0.0.1:8000/createtable/
+# def createtable(request):
+#     print("####create table route hit ######")
+#     post_text = request.POST.get('the_post')
+#     print("*******text box value is "+post_text)
 
-    class Car(Base):
-        __tablename__ = "Cars"
+
+#     return HttpResponse(
+#         json.dumps({"post_text is": post_text}),
+#         content_type="application/json"
+#     )
+
+
+def createtable(request):
+    print("####create table route hit ######")
+    tabletitle = request.POST.get('the_post')
+    print("*******text box value is "+tabletitle)
+
+    class tableconstructor(Base):
+        __tablename__ = tabletitle
 
         Id = Column(String, primary_key=True)
-        Name = Column(String)
-        Price = Column(Integer)
+        col1 = Column(String)
+        col2 = Column(String)
         # The user-defined Car class is mapped to the Cars table. The class inherits from the declarative base class.
 
     Base.metadata.bind = eng
@@ -47,24 +64,20 @@ def createtabletest():
     ses = Session()
     # A session object is created.
     ses.add_all(
-       [Car(Id=1, Name='Audi', Price=52642),
-        Car(Id=2, Name='Mercedes', Price=57127),
-        Car(Id=3, Name='Skoda', Price=9000),
-        Car(Id=4, Name='Volvo', Price=29000),
-        Car(Id=5, Name='Bentley', Price=350000),
-        Car(Id=6, Name='Citroen', Price=21000),
-        Car(Id=7, Name='Hummer', Price=41400),
-        Car(Id=8, Name='Volkswagen', Price=21600)])
+       [tableconstructor(Id=1, col1='Col1Empty1', col2="col2empty1"),
+        tableconstructor(Id=2, col1='Col1Empty2', col2="col2empty2")])
         # With the add_all() method, we add the specified instances of Car classes to the session.
     ses.commit()
     # The changes are committed to the database with the commit() method.
-    rs = ses.query(Car).all()
+    rs = ses.query(tableconstructor).all()
     # We query for all data from the Cars table. The query() method loads all instances of the Car class and its all() method returns all results represented by the query as a list.
-    for car in rs:
-        print car.Name, car.Price
+    for item in rs:
+        print item.col1, item.col2
     # We iterate through the result set and print two columns for all returned rows.
-
-createtabletest()
+    return HttpResponse(
+        json.dumps({"tabletitle is": tabletitle}),
+        content_type="application/json"
+    )
 
 
 
@@ -335,17 +348,6 @@ def edittables(request):
 
 ##testing new way of creating a route
 
-# http://127.0.0.1:8000/createtable/
-def createtable(request):
-    print("####create table route hit ######")
-    post_text = request.POST.get('the_post')
-    print("*******text box value is "+post_text)
-
-
-    return HttpResponse(
-        json.dumps({"post_text is": post_text}),
-        content_type="application/json"
-    )
 
 
 
