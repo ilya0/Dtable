@@ -9,4 +9,4 @@ inspinia
 
 Current Goals
 
-- on table add click, new table should be create in database
+- create sql alchemy to create a table on button press
