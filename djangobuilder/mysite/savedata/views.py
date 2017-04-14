@@ -11,6 +11,10 @@ import json
 from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 import sqlalchemy
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+
 #sqlachemey print version
 print("##sql alchemy version##  "+sqlalchemy.__version__)
 
@@ -21,6 +25,48 @@ print("##sql alchemy version##  "+sqlalchemy.__version__)
 eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/DTabledatabase')
 # creates a meta object to hold all the things
 meta = MetaData()
+#declarative base class is created with this function
+Base = declarative_base()
+
+
+def createtabletest():
+
+    class Car(Base):
+        __tablename__ = "Cars"
+
+        Id = Column(String, primary_key=True)
+        Name = Column(String)
+        Price = Column(Integer)
+        # The user-defined Car class is mapped to the Cars table. The class inherits from the declarative base class.
+
+    Base.metadata.bind = eng
+    # The declarative Base is bound to the database engine.
+    Base.metadata.create_all()
+    # The create_all() method creates all configured tables; in our case, there is only one table.
+    Session = sessionmaker(bind=eng)
+    ses = Session()
+    # A session object is created.
+    ses.add_all(
+       [Car(Id=1, Name='Audi', Price=52642),
+        Car(Id=2, Name='Mercedes', Price=57127),
+        Car(Id=3, Name='Skoda', Price=9000),
+        Car(Id=4, Name='Volvo', Price=29000),
+        Car(Id=5, Name='Bentley', Price=350000),
+        Car(Id=6, Name='Citroen', Price=21000),
+        Car(Id=7, Name='Hummer', Price=41400),
+        Car(Id=8, Name='Volkswagen', Price=21600)])
+        # With the add_all() method, we add the specified instances of Car classes to the session.
+    ses.commit()
+    # The changes are committed to the database with the commit() method.
+    rs = ses.query(Car).all()
+    # We query for all data from the Cars table. The query() method loads all instances of the Car class and its all() method returns all results represented by the query as a list.
+    for car in rs:
+        print car.Name, car.Price
+    # We iterate through the result set and print two columns for all returned rows.
+
+createtabletest()
+
+
 
 
 
