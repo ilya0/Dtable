@@ -8,6 +8,11 @@ from .forms import NameForm
 from django import forms
 import datetime
 import json
+from sqlalchemy import *
+from sqlalchemy.ext.declarative import declarative_base
+import sqlalchemy
+
+print("##sql alchemy version##  "+sqlalchemy.__version__)
 
 
 
@@ -220,6 +225,7 @@ def createtable(request):
     print("####create table route hit ######")
     post_text = request.POST.get('the_post')
     print("*******text box value is "+post_text)
+
 
     return HttpResponse(
         json.dumps({"post_text is": post_text}),
