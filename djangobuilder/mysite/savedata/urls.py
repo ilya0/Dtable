@@ -24,6 +24,7 @@ urlpatterns = [
     #add columns to table
     url(r'^editcolumns/', views.editcolumns, name='editcolumns'),
     #edit-columns_interaction - add data to table
+    #this page works to add data
     url(r'^adddata/', views.adddata, name='adddata'),
 
     url(r'^edittables/', views.edittables, name='edittables'),

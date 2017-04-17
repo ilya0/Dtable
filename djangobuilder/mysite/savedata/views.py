@@ -32,7 +32,12 @@ Base = declarative_base()
 
 def createtable(request):
     print("####create table route hit ######")
-    tabletitle = request.POST.get('the_post')
+    tabletitle = 'test'
+    if tabletitle == Nonetype:
+        tabletitle = "No table"
+    else:
+        tabletitle = request.POST.get('the_post')
+
     print("*******text box value is "+tabletitle)
 
     class tableconstructor(Base):
@@ -102,15 +107,20 @@ def alchemytest():
 
 
 #this prints all the tables in in the database
+# The reflect() method automatically creates Table entries in the MetaData object for any table available in the database but not yet present in the MetaData.
+
 def printdatabases():
     meta.reflect(bind=eng)
 
     for table in meta.tables:
         print (table)
-# The reflect() method automatically creates Table entries in the MetaData object for any table available in the database but not yet present in the MetaData.
+
+
 
 
 #prints out names of items in the table
+# The Inspector performs low-level database schema inspection. An Inspector is created with the inspect() method.
+
 def inspectortest():
     tablename = "savedata_name"
     insp = inspect(eng)
@@ -125,7 +135,6 @@ def inspectortest():
 
 #inspectortest()
 
-# The Inspector performs low-level database schema inspection. An Inspector is created with the inspect() method.
 
 
 
@@ -137,8 +146,6 @@ def inspectortest():
 # 		return render(request, 'savedata/show.html', context)
 
 
-def redirect(request):
-    return HttpResponseRedirect('savedata/submitform')
 
 
 
@@ -148,23 +155,23 @@ def redirect(request):
 
 #this is the index view method
 class IndexView(generic.ListView):
-	template_name = 'savedata/savedataindex.html'
-	context_object_name = 'latest_name_list'
+    template_name = 'savedata/savedataindex.html'
+    context_object_name = 'latest_name_list'
 
-	def get_queryset(self):
-		"""Return the last five published questions."""
-		return models.name.objects.order_by('-pub_date')[:5]
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return models.name.objects.order_by('-pub_date')[:5]
 
 
 
 #this is the submit form view
 class submitform(generic.ListView):
-	template_name = 'savedata/submitform.html'
-	context_object_name = 'latest_name_list'
+    template_name = 'savedata/submitform.html'
+    context_object_name = 'latest_name_list'
 
-	def get_queryset(self):
-		"""Return the last five published questions."""
-		return models.name.objects.order_by('-pub_date')[:5]
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return models.name.objects.order_by('-pub_date')[:5]
 
 
 # def submitform(request):
@@ -172,62 +179,62 @@ class submitform(generic.ListView):
 
 #     #renders table page with data from database
 #     # going to use this as a test currently
-#     thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
+#     # thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
 #     context = { 'thing': thing }  #this is a dictonary
 #     print(context)
 #     return render(request, 'savedata/submitform.html', context)
 
 # submitform route method sends the data to the database and then
 def submitdata(request):
-	print("submitdata accessed")
-	# if this is a POST request we need to process the form data
-	if request.method == 'POST':
-		print("=== post hit")
-		# create a form instance and populate it with data from the request:
-		form = NameForm(request.POST)
-		print("after post request if hit")
-		# check whether it's valid:
-		if form.is_valid():
-			name = form.cleaned_data["name"]
-			age = form.cleaned_data["age"]
-			location = form.cleaned_data["location"]
-			# date = form.cleaned_data["pub_date"]
-			print(location)
-			print(age)
-			print(name)
-			# print(date)
-			#creating a my var object to save the parameters
-			myVar = models.name()
-			#attaching input fields to objects
-			myVar.name = name
-			myVar.age = age
-			myVar.location = location
-			myVar.pub_date = datetime.datetime.now()
-			myVar.save()
+    print("submitdata accessed")
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        print("=== post hit")
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        print("after post request if hit")
+        # check whether it's valid:
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            age = form.cleaned_data["age"]
+            location = form.cleaned_data["location"]
+            # date = form.cleaned_data["pub_date"]
+            print(location)
+            print(age)
+            print(name)
+            # print(date)
+            #creating a my var object to save the parameters
+            myVar = models.name()
+            #attaching input fields to objects
+            myVar.name = name
+            myVar.age = age
+            myVar.location = location
+            myVar.pub_date = datetime.datetime.now()
+            myVar.save()
 
-			# process the data in form.cleaned_data as required
-			# ...
-			# redirect to a new URL:
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
 
 
-			return HttpResponseRedirect('/adddata/')
-		# else:
-		#     print(dir(form.errors))
-	 # if a GET (or any other method) we'll create a blank form
-	else:
-		form = NameForm()
+            return HttpResponseRedirect('/adddata/')
+        # else:
+        #     print(dir(form.errors))
+     # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
 
-	return render(request, 'savedata/adddata.html', {'form': form})
+    return render(request, 'savedata/adddata.html', {'form': form})
 
 
 
 class thanks(generic.ListView):
-	template_name = 'savedata/thanks.html'
-	# context_object_name = 'latest_name_list'
+    template_name = 'savedata/thanks.html'
+    # context_object_name = 'latest_name_list'
 
-	def get_queryset(self):
-		"""Return the last five published questions."""
-		return models.name.objects.order_by('-pub_date')[:5]
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return models.name.objects.order_by('-pub_date')[:5]
 
 
 
@@ -242,11 +249,11 @@ class thanks(generic.ListView):
 
 
 
-### def based view - this works with the regular routes
+###def based view - this works with the regular routes
 
 def show(request):
     thing = name.objects.all()
-    context = { 'thing': thing }  #this is a dictonary
+    context = {'thing': thing}  #this is a dictonary
     print(context)
     return render(request, 'savedata/show.html', context)
 
@@ -275,53 +282,9 @@ def edittables(request):
 
 
 
-
-# def createtable(request):
-# 	# submits data from input box to create new database
-#     print("createtable route hit")
-#     #get data from input box
-# 	#create new database with name and user id
-# 	#pull names
-# 	# thing = name.objects.all()
-# 	#push results into the context
-# 	# context = { 'thing': thing }
-
-
-#     if request.method == 'POST':
-#         post_text = request.POST.get('the_post')
-#         response_data = {}
-
-#         name = Name(name=post_text, author=request.user)
-#         print("name of name in the createtable route is")
-#         print(name)
-#         post.save()
-#         ##creating a response object that will display
-#         response_data['result'] = 'Create post successful!'
-#         response_data['postpk'] = name.pk
-#         response_data['text'] = name.text
-#         response_data['created'] = name.created.strftime('%B %d, %Y %I:%M %p')
-#         response_data['author'] = name.author.username
-
-#         return HttpResponse(
-#             json.dumps(response_data),
-#             content_type="application/json"
-#         )
-#     else:
-#         return HttpResponse(
-#             json.dumps({"nothing to see": "this isn't happening"}),
-#             content_type="application/json"
-#         )
-
-##testing new way of creating a route
-
-
-
-
-
-
 def rendertablepage(request):
-	#renders table page with data from database
-	# going to use this as a test currently
+    #renders table page with data from database
+    # going to use this as a test currently
     print("rendertablepage route hit")
     thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
     context = { 'thing': thing }  #this is a dictonary
@@ -334,8 +297,8 @@ def rendertablepage(request):
 def deletetable(request):
     print("delete route hit")
 
-	#renders table page with data from database
-	# going to use this as a test currently
+    #renders table page with data from database
+    # going to use this as a test currently
     thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
     context = { 'thing': thing }  #this is a dictonary
     print(context)
@@ -358,7 +321,8 @@ def adddata(request):
     return render(request, 'savedata/adddata.html', context)
 
 
-
+def redirect(request):
+    return HttpResponseRedirect('savedata/submitform')
 
 
 
