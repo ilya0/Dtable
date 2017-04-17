@@ -22,25 +22,12 @@ print("##sql alchemy version##  "+sqlalchemy.__version__)
 # things needed for sqlalchemy
 
 # this is the connection to the database
-eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/DTabledatabase')
+eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/dtabledatabase')
 # creates a meta object to hold all the things
 meta = MetaData()
 #declarative base class is created with this function
 Base = declarative_base()
 
-
-# create table test method
-# http://127.0.0.1:8000/createtable/
-# def createtable(request):
-#     print("####create table route hit ######")
-#     post_text = request.POST.get('the_post')
-#     print("*******text box value is "+post_text)
-
-
-#     return HttpResponse(
-#         json.dumps({"post_text is": post_text}),
-#         content_type="application/json"
-#     )
 
 
 def createtable(request):
@@ -72,7 +59,7 @@ def createtable(request):
     rs = ses.query(tableconstructor).all()
     # We query for all data from the Cars table. The query() method loads all instances of the Car class and its all() method returns all results represented by the query as a list.
     for item in rs:
-        print item.col1, item.col2
+        print (item.col1, item.col2)
     # We iterate through the result set and print two columns for all returned rows.
     return HttpResponse(
         json.dumps({"tabletitle is": tabletitle}),
@@ -94,23 +81,23 @@ def alchemytest():
          Column('Price', Integer)
     )
 # We create a metadata definition of a Cars table. The table has three columns, defined with the Column class. The datatypes of columns are defined with the Integer and String classes.
-    print "The Name column:"
-    print cars.columns.Name
-    print cars.c.Name
+    print ("The Name column:")
+    print (cars.columns.Name)
+    print (cars.c.Name)
 
-    print "Columns: "
+    print ("Columns: ")
     for col in cars.c:
-        print col
+        print (col)
 
-    print "Primary keys:"
+    print ("Primary keys:")
     for pk in cars.primary_key:
-        print pk
+        print (pk)
 
-    print "The Id column:"
-    print cars.c.Id.name
-    print cars.c.Id.type
-    print cars.c.Id.nullable
-    print cars.c.Id.primary_key
+    print ("The Id column:")
+    print (cars.c.Id.name)
+    print (cars.c.Id.type)
+    print (cars.c.Id.nullable)
+    print (cars.c.Id.primary_key)
 
 
 
@@ -119,51 +106,30 @@ def printdatabases():
     meta.reflect(bind=eng)
 
     for table in meta.tables:
-        print table
+        print (table)
 # The reflect() method automatically creates Table entries in the MetaData object for any table available in the database but not yet present in the MetaData.
 
 
-
-
+#prints out names of items in the table
 def inspectortest():
     tablename = "savedata_name"
     insp = inspect(eng)
-    print insp.get_table_names()
+    print (insp.get_table_names())
     #get the names of available tables
-    print insp.get_columns(tablename)
+    print (insp.get_columns(tablename))
     #get columns get the names of columns in the tables
-    print insp.get_primary_keys(tablename)
+    print (insp.get_primary_keys(tablename))
     #gets teh primary keys of the
-    print insp.get_schema_names()
+    print (insp.get_schema_names())
     #returns all the schema names
 
-inspectortest()
+#inspectortest()
 
 # The Inspector performs low-level database schema inspection. An Inspector is created with the inspect() method.
 
 
 
 
-
-# this method is not working, currently using the same as index method
-######
-def get_name(request):
-	# if this is a POST request we need to process the form data
-	if request.method == 'POST':
-		# create a form instance and populate it with data from the request:
-		form = NameForm(request.POST)
-		# check whether it's valid:
-		if form.is_valid():
-			# process the data in form.cleaned_data as required
-			# ...
-			# redirect to a new URL:
-			return HttpResponseRedirect('/thanks/')
-
-	# if a GET (or any other method) we'll create a blank form
-        else:
-            form = NameForm()
-
-        return render(request, 'savedata/show.html', {'form': form})
 
 # def show(request):
 # 	listofthings = name.objects.all()

@@ -78,13 +78,26 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DTabledatabase',
+        'NAME': 'dtabledatabase',
         'USER': 'admin',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'DTabledatabase',
+#         'USER': 'admin',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+
+
+
+
 
 
 # Password validation
