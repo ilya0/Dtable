@@ -113,7 +113,7 @@ def printdatabases():
 
 
 
-#prints out names of items in the table
+#prints out names of ITEMS in a TABLE
 # The Inspector performs low-level database schema inspection. An Inspector is created with the inspect() method.
 
 def inspectortest():
@@ -230,10 +230,13 @@ def show(request):
     print(context)
     return render(request, 'savedata/show.html', context)
 
+
+#$$$$ adding sqlalchemy to this route to pull all the tables
+
 def tablelist(request):
     print("tablelist route hit")
     thing = name.objects.all() #query the database
-    context = { 'thing': thing }  #this is a dictonary
+    context = {'thing': thing}  #this is a dictonary
     # print(context)
     return render(request, 'savedata/table-list.html', context)
 
@@ -254,27 +257,14 @@ def edittables(request):
     return render(request, 'savedata/table-edit.html', context)
 
 
-
-def rendertablepage(request):
-    #renders table page with data from database
-    # going to use this as a test currently
-    print("rendertablepage route hit")
-    thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
-    context = { 'thing': thing }  #this is a dictonary
-    print(context)
-    return render(request, 'savedata/table-list.html', context)
-
-
-
-## currently unused
 def deletetable(request):
     print("delete route hit")
+    tabletodelete = request.POST.get('buttonidholder')
+    context = { 'thing': tabletodelete }  #this is a dictonary
+    print("table to delete is")
+    print(tabletodelete) #sanity checking
 
-    #renders table page with data from database
-    # going to use this as a test currently
-    thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
-    context = { 'thing': thing }  #this is a dictonary
-    print(context)
+
     return render(request, 'savedata/table-list.html', context)
 
 

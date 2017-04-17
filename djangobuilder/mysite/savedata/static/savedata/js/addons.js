@@ -44,12 +44,17 @@ function create_post() {
 };
 
 
+
+
+
+
+
 //delete button methodology
 
 //on submit click prevent default and run create_post
 $('.deletebutton').click(function(event){
     event.preventDefault();
-    console.log("form submitted!"); // sanity check
+    console.log("Delete button pressed!"); // sanity check
     buttonidholder = this.id;
     alert("buttonidholder is "+buttonidholder);
     deletetable();
@@ -59,15 +64,15 @@ $('.deletebutton').click(function(event){
 function deletetable() {
       console.log("deletetable route hit"); // sanity check
     $.ajax({
-        url : "deletetable/", // the endpoint
+        url : "../deletetable/", // the endpoint
         type : "POST", // http method
-        data : { the_post : buttonidholder }, // data sent with the post request
+        data : { buttonidholder : buttonidholder }, // data sent with the post request
 
         // handle a successful response
         success : function(json) {
             $('#post-text').val(''); // remove the value from the input
             console.log(json); // log the returned json to the console
-            console.log("success"); // another sanity check
+            console.log("success function"); // another sanity check
         },
 
         // handle a non-successful response

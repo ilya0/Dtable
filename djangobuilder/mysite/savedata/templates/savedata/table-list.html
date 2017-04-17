@@ -73,12 +73,16 @@
 
                   <!-- submit box -->
                         <div class="ibox-content">
+
+
                           <form action="/thisdoesntmatter" method="POST" id="post-form">
                           <!-- This needs to be changed to the submit method -->
-                             New Table Name
-                            <input type="text"  id="post-text"><br>
+
+                            <input type="text"  id="post-text" placeholder="New Table Name"><br>
+                              <span style="display: inline;">
                             <input type="submit" value="Submit" class="btn btn-w-m btn-success" style="margin-bottom: 0;">
-                            {% csrf_token %}
+                              </span>
+                                  {% csrf_token %}
                           </form>
                         </div>
 
