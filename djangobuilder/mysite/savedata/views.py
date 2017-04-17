@@ -15,21 +15,17 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-#sqlachemey print version
-print("##sql alchemy version##  "+sqlalchemy.__version__)
-
 
 # things needed for sqlalchemy
-
-# this is the connection to the database
-eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/dtabledatabase')
-# creates a meta object to hold all the things
-meta = MetaData()
-#declarative base class is created with this function
-Base = declarative_base()
+eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/dtabledatabase') # this is the connection to the database
+meta = MetaData() # creates a meta object to hold all the things
+Base = declarative_base() #declarative base class is created with this function
+print("##sql alchemy initialized - version: ##  "+sqlalchemy.__version__) #sqlachemey print version
 
 
 
+
+#this is a method that creates a table when hit from an ajax call
 def createtable(request):
     print("####create table route hit ######")
     tabletitle = 'test'
@@ -75,22 +71,21 @@ def createtable(request):
 
 
 
+#testing methods
 
 
-
-
+# We create a metadata definition of a Cars table. The table has three columns, defined with the Column class. The datatypes of columns are defined with the Integer and String classes.
 def alchemytest():
     cars = Table('Cars', meta,
          Column('Id', Integer, primary_key=True),
          Column('Name', String),
          Column('Price', Integer)
     )
-# We create a metadata definition of a Cars table. The table has three columns, defined with the Column class. The datatypes of columns are defined with the Integer and String classes.
-    print ("The Name column:")
-    print (cars.columns.Name)
-    print (cars.c.Name)
+    print("The Name column:")
+    print(cars.columns.Name)
+    print(cars.c.Name)
 
-    print ("Columns: ")
+    print("Columns: ")
     for col in cars.c:
         print (col)
 
@@ -98,11 +93,11 @@ def alchemytest():
     for pk in cars.primary_key:
         print (pk)
 
-    print ("The Id column:")
-    print (cars.c.Id.name)
-    print (cars.c.Id.type)
-    print (cars.c.Id.nullable)
-    print (cars.c.Id.primary_key)
+    print("The Id column:")
+    print(cars.c.Id.name)
+    print(cars.c.Id.type)
+    print(cars.c.Id.nullable)
+    print(cars.c.Id.primary_key)
 
 
 
@@ -124,29 +119,16 @@ def printdatabases():
 def inspectortest():
     tablename = "savedata_name"
     insp = inspect(eng)
-    print (insp.get_table_names())
+    print(insp.get_table_names())
     #get the names of available tables
-    print (insp.get_columns(tablename))
+    print(insp.get_columns(tablename))
     #get columns get the names of columns in the tables
-    print (insp.get_primary_keys(tablename))
+    print(insp.get_primary_keys(tablename))
     #gets teh primary keys of the
-    print (insp.get_schema_names())
+    print(insp.get_schema_names())
     #returns all the schema names
 
 #inspectortest()
-
-
-
-
-
-
-# def show(request):
-# 	listofthings = name.objects.all()
-# 	context = {'listofthings': listofthings}
-# 		return render(request, 'savedata/show.html', context)
-
-
-
 
 
 
@@ -174,15 +156,6 @@ class submitform(generic.ListView):
         return models.name.objects.order_by('-pub_date')[:5]
 
 
-# def submitform(request):
-#     print("delete route hit")
-
-#     #renders table page with data from database
-#     # going to use this as a test currently
-#     # thing = name.objects.all() #query the database (this needs to be changed to get the ids and names of all the tables)
-#     context = { 'thing': thing }  #this is a dictonary
-#     print(context)
-#     return render(request, 'savedata/submitform.html', context)
 
 # submitform route method sends the data to the database and then
 def submitdata(request):

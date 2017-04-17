@@ -24,11 +24,8 @@ urlpatterns = [
     #add columns to table
     url(r'^editcolumns/', views.editcolumns, name='editcolumns'),
     #edit-columns_interaction - add data to table
-    #this page works to add data
-    url(r'^adddata/', views.adddata, name='adddata'),
-
+    url(r'^adddata/', views.adddata, name='adddata'),  #route works
     url(r'^edittables/', views.edittables, name='edittables'),
-    # links to createtable method to submit a new name for a database
-    url(r'^createtable/', views.createtable, name='createtable'),
+    url(r'^createtable/', views.createtable, name='createtable')# method to create table - no view
 ]
 
