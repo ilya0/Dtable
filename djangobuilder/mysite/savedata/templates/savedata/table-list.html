@@ -84,6 +84,7 @@
                               </span>
                                   {% csrf_token %}
                           </form>
+
                         </div>
 
 
@@ -106,13 +107,13 @@
 
                     {% for item in thing %}
                       <tr class="gradeC">
-                        <td>{{ item.table }}</td>
+                        <td>{{ item }}</td>
                           <td>
-                            <button type="button" id="{{ item.id }}" class=" editcolumnsbutton btn btn-xs btn-success" style="margin-bottom: 0;">Edit Columns</button>
+                            <button type="button" id="{{ item }}" class=" editcolumnsbutton btn btn-xs btn-success" style="margin-bottom: 0;">Edit Columns</button>
 
-                            <button type="button" id="{{ item.id }}" class="editdatabutton btn btn-xs btn-primary" style="margin-bottom: 0;">Edit Data</button>
+                            <button type="button" id="{{ item }}" class="editdatabutton btn btn-xs btn-primary" style="margin-bottom: 0;">Edit Data</button>
 
-                            <button type="button" id="{{ item.id }}" class=" deletebutton btn btn-xs btn-primary" style="margin-bottom: 0;">Delete Table</button>
+                            <button type="button" id="{{ item }}" class=" deletebutton btn btn-xs btn-primary" style="margin-bottom: 0;">Delete Table</button>
                         </td>
                       </tr>
                     {% endfor %}

@@ -269,15 +269,16 @@ def tablelist(request):
         print(table)
         print('Final array:', tablelistarray)
 
-    thing = meta.tables
-    context = {'thing': tablelistarray}  #this is a dictonary
-    print(context)
-    # return render(request, 'savedata/table-list.html', context)
+    context = {'thing': tablelistarray}
+    # tablelistarray is ['polls_choice', 'savedata_name', 'polls_question',]
 
-    return HttpResponse(
-        json.dumps({"thing contents is": context}),
-        content_type="application/json"
-    )
+    print(context)
+    return render(request, 'savedata/table-list.html', context)
+
+    # return HttpResponse(
+    #     json.dumps({"thing contents is": context}),
+    #     content_type="application/json"
+    # )
 
 
 
