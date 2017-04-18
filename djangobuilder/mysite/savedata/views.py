@@ -104,12 +104,17 @@ def alchemytest():
 #this prints all the tables in in the database
 # The reflect() method automatically creates Table entries in the MetaData object for any table available in the database but not yet present in the MetaData.
 
-def printdatabases():
+def printtables(request):
+    print("printtables route hit")
     meta.reflect(bind=eng)
 
     for table in meta.tables:
-        print (table)
+        print(table)
 
+    return HttpResponse(
+        json.dumps({"tabletitle is": table}),
+        content_type="application/json"
+    )
 
 
 
@@ -231,20 +236,14 @@ def show(request):
     return render(request, 'savedata/show.html', context)
 
 
-#$$$$ adding sqlalchemy to this route to pull all the tables
 
-def tablelist(request):
-    print("tablelist route hit")
-    thing = name.objects.all() #query the database
-    context = {'thing': thing}  #this is a dictonary
-    # print(context)
-    return render(request, 'savedata/table-list.html', context)
+
 
 
 def editcolumns(request):
     print("tablelist route hit")
     thing = name.objects.all() #query the database
-    context = { 'thing': thing }  #this is a dictonary
+    context = {'thing': thing}  #this is a dictonary
     print(context)
     return render(request, 'savedata/edit-columns.html', context)
 
@@ -252,11 +251,23 @@ def editcolumns(request):
 def edittables(request):
     print("edit route hit")
     thing = name.objects.all() #query the database
-    context = { 'thing': thing }  #this is a dictonary
+    context = {'thing': thing}  #this is a dictonary
     print(context)
     return render(request, 'savedata/table-edit.html', context)
 
 
+
+#$$$$ adding sqlalchemy to this route to pull all the tables
+
+def tablelist(request):
+    print("tablelist route hit")
+    thing = Base.Meta.table_names(engine) #query the database
+    context = {'thing': thing}  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/table-list.html', context)
+
+
+#delete table route is working but needs a list of tables from sqlalchemy
 def deletetable(request):
     print("delete route hit")
     tabletodelete = request.POST.get('buttonidholder')
@@ -264,8 +275,12 @@ def deletetable(request):
     print("table to delete is")
     print(tabletodelete) #sanity checking
 
+#this works
 
     return render(request, 'savedata/table-list.html', context)
+
+
+
 
 
 #route which submits data to a table
@@ -284,6 +299,8 @@ def adddata(request):
     return render(request, 'savedata/adddata.html', context)
 
 
+
+#simple redirect route
 def redirect(request):
     return HttpResponseRedirect('savedata/submitform')
 

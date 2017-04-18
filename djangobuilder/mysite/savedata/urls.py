@@ -27,7 +27,8 @@ urlpatterns = [
     url(r'^adddata/', views.adddata, name='adddata'),  #route works
     url(r'^edittables/', views.edittables, name='edittables'),
     url(r'^createtable/', views.createtable, name='createtable'),# method to create table - no view
-    url(r'^deletetable/', views.deletetable, name='deletetable')
+    url(r'^deletetable/', views.deletetable, name='deletetable'),
+    url(r'^printtables/', views.printtables, name='printtables')
 
 ]
 
