@@ -23,8 +23,8 @@ postgres=# \e                 # edit in $EDITOR
 
 
 Goals for Apr 17 week
-- refactor and clean up code
-- redo code for tablelist to show all the tables in the database
+- refactor and clean up code - working
+- redo code for tablelist to show all the tables in the database - finished
 - change front end to be able to add columns to tables that were created
 - create a selector for tables
 
@@ -34,15 +34,17 @@ Goals for Apr 17 week
 Changes for pages
 ------------------
 
+- Tablelist
+    - Delete table function needs to be updated so that it works with sqlalchemy - working on delete functionality
+    - Needs to pull from sqlachemy list of tables - finshed
+    - buttons - edit columns and edit data need to go to the right pages
+
 -Editcolumns page
     - Needs selector added from previous route that tell it to grab right table
     - table selector page maybe?
     - column name input box
 
-- Tablelist
-    - Delete table function needs to be updated so that it works with sqlalchemy
-    - Needs to pull from sqlachemy list of tables
-    - buttons - edit columns and edit data need to go to the right pages
+
 - adddata page
     - Need table selector to which will show all the data and allow to add to
     -

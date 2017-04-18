@@ -27,13 +27,9 @@ print("##sql alchemy initialized - version: ##  "+sqlalchemy.__version__) #sqlac
 
 #this is a method that creates a table when hit from an ajax call
 def createtable(request):
+    ##*****still needs a method where it will load nontype******
     print("####create table route hit ######")
-    tabletitle = 'test'
-    if tabletitle == Nonetype:
-        tabletitle = "No table"
-    else:
-        tabletitle = request.POST.get('the_post')
-
+    tabletitle = request.POST.get('the_post')
     print("*******text box value is "+tabletitle)
 
     class tableconstructor(Base):
@@ -237,9 +233,6 @@ def show(request):
 
 
 
-
-
-
 def editcolumns(request):
     print("tablelist route hit")
     thing = name.objects.all() #query the database
@@ -257,7 +250,7 @@ def edittables(request):
 
 
 
-#$$$$ adding sqlalchemy to this route to pull all the tables
+#shows tables in database on page tablelist
 
 def tablelist(request):
     print("tablelist route hit")
@@ -270,19 +263,13 @@ def tablelist(request):
         print('Final array:', tablelistarray)
 
     context = {'thing': tablelistarray}
-    # tablelistarray is ['polls_choice', 'savedata_name', 'polls_question',]
-
     print(context)
     return render(request, 'savedata/table-list.html', context)
 
-    # return HttpResponse(
-    #     json.dumps({"thing contents is": context}),
-    #     content_type="application/json"
-    # )
 
 
 
-#delete table route is working but needs a list of tables from sqlalchemy
+#delete table route needs to be changed to get tables by ids
 def deletetable(request):
     print("delete route hit")
     tabletodelete = request.POST.get('buttonidholder')
@@ -290,7 +277,12 @@ def deletetable(request):
     print("table to delete is")
     print(tabletodelete) #sanity checking
 
-#this works
+    # delete the corresponding table
+    table_name = tabletodelete
+    table = Table(table_name, meta)
+    if table.exists(bind=eng):
+        table.drop(bind=eng)
+        return render(request, 'savedata/table-list.html', context)
 
     return render(request, 'savedata/table-list.html', context)
 
