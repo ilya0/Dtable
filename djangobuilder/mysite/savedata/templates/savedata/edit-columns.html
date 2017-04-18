@@ -71,9 +71,14 @@
                                 </a>
                             </div>
                         </div>
+
+
+
                         <div class="ibox-content">
                             <form role="form" class="form-inline">
-	                            <button type="button" class="btn btn-w-m btn-success" style="margin-bottom: 0;">Add Column</button>
+
+
+	                              <button type="button" class="btn btn-w-m btn-success" style="margin-bottom: 0;">Add Column</button>
 
                             </form>
                         </div>
@@ -88,6 +93,8 @@
 
                     <table class="table table-striped table-bordered table-hover dataTables-example" >
                     <thead>
+
+                    <!--this needs to be the columns-->
                     <tr>
 	                    <th>#</th>
                         <th>Name</th>
@@ -97,6 +104,17 @@
                         <th>Default</th>
                         <th>Commands</th>
                     </tr>
+
+
+                    {% for item in thing %}
+                      <tr>
+                        <th>{{ item }}</th>
+                          <td>
+                            <button type="button" id="{{ item }}" class=" deletecolumn btn btn-xs btn-success" style="margin-bottom: 0;">Delete col</button>
+                          </td>
+                      </tr>
+                    {% endfor %}
+
                     </thead>
                     <tbody>
                     <tr class="gradeC">
