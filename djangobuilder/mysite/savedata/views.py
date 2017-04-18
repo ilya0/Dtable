@@ -261,10 +261,24 @@ def edittables(request):
 
 def tablelist(request):
     print("tablelist route hit")
-    thing = Base.Meta.table_names(engine) #query the database
-    context = {'thing': thing}  #this is a dictonary
+    tablelistarray = []
+    meta.reflect(bind=eng)
+
+    for table in meta.tables:
+        tablelistarray.insert(0,table)
+        print(table)
+        print('Final array:', tablelistarray)
+
+    thing = meta.tables
+    context = {'thing': tablelistarray}  #this is a dictonary
     print(context)
-    return render(request, 'savedata/table-list.html', context)
+    # return render(request, 'savedata/table-list.html', context)
+
+    return HttpResponse(
+        json.dumps({"thing contents is": context}),
+        content_type="application/json"
+    )
+
 
 
 #delete table route is working but needs a list of tables from sqlalchemy
