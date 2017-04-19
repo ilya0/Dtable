@@ -77,10 +77,19 @@
                         <div class="ibox-content">
                             <form role="form" class="form-inline">
 
-
+ <input type="text" name="fname" placeholder="Column Name"><br>
 	                              <button type="button" class="btn btn-w-m btn-success" style="margin-bottom: 0;">Add Column</button>
 
                             </form>
+
+                            <div class="ibox-content">
+                                Select table
+                            <select>
+                                {% for item in thing %}
+                                <option value={{ item }}>{{ item }}</option>
+                                {% endfor %}
+                             </select>
+                            </div>
                         </div>
 
 
@@ -95,25 +104,16 @@
                     <thead>
 
                     <!--this needs to be the columns-->
+
                     <tr>
-	                    <th>#</th>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Nullable</th>
-                        <th>Length</th>
-                        <th>Default</th>
-                        <th>Commands</th>
+                        {% for item in thing %}
+	                        <th>{{ item }}
+                                <button type="button" id="{{ item }}" class=" deletecolumnbutton btn btn-xs btn-success" style="margin-bottom: 0;">Delete col</button>
+</th>
+                        {% endfor %}
                     </tr>
 
 
-                    {% for item in thing %}
-                      <tr>
-                        <th>{{ item }}</th>
-                          <td>
-                            <button type="button" id="{{ item }}" class=" deletecolumn btn btn-xs btn-success" style="margin-bottom: 0;">Delete col</button>
-                          </td>
-                      </tr>
-                    {% endfor %}
 
                     </thead>
                     <tbody>

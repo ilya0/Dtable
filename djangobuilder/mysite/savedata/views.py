@@ -212,15 +212,6 @@ class thanks(generic.ListView):
 
 
 
-# class show(generic.ListView):
-# 	template_name = 'savedata/show.html'
-# 	# context_object_name = 'latest_name_list'
-
-# 	def get_queryset(self):
-# 		"""Return the last five published questions."""
-# 		return models.name.objects.order_by('-pub_date')[:5]
-
-
 
 
 ###def based view - this works with the regular routes
@@ -234,8 +225,19 @@ def show(request):
 
 
 def editcolumns(request):
-    print("tablelist route hit")
+    print("editcolumns route hit")
+    #set default table
+    #set table to table selected
+    #get contents of table
+    #render page
+
+    rendertable = "test"
+    rendertable = request.POST.get('buttonidholder')
+
     thing = name.objects.all() #query the database
+
+
+
     context = {'thing': thing}  #this is a dictonary
     print(context)
     return render(request, 'savedata/edit-columns.html', context)
@@ -248,6 +250,25 @@ def edittables(request):
     print(context)
     return render(request, 'savedata/table-edit.html', context)
 
+
+def gettablestructure(request):
+    tabletoview = "polls_question"
+    # Create MetaData instance
+    # metadata = MetaData(eng, reflect=True)
+    print(metadata.tables)
+
+    # saves the data from the table in question
+    ex_table = metadata.tables[tabletoview]
+
+
+    for t in metadata.tables[tabletoview]:
+        print(t.name)
+
+
+    return HttpResponse(
+        json.dumps({"tabletitle is": "test"}),
+        content_type="application/json"
+    )
 
 
 #shows tables in database on page tablelist

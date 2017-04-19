@@ -6,6 +6,7 @@
 Tech Details
 ------------
 To run virtual enviroment - source ~/code/dyl/dtable/venv/bin/activate
+source activate
 
 
 

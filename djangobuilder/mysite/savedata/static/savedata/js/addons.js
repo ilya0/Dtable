@@ -1,3 +1,5 @@
+console.log("js loaded");
+
 // $("button").click(function() {
 //     alert(this.id); // or alert($(this).attr('id'));
 // });
@@ -90,7 +92,7 @@ function deletetable() {
 //add column button methodology
 
 //on submit click prevent default and run create_post
-$('.addcolumn').click(function(event){
+$('.addcolumnbutton').click(function(event){
     event.preventDefault();
     console.log("Delete button pressed!"); // sanity check
     buttonidholder = this.id;
@@ -121,6 +123,47 @@ $('.addcolumn').click(function(event){
 //         }
 //     });
 // };
+
+
+
+//add column button methodology
+
+//on submit click prevent default and run create_post
+$('.deletecolumnbutton').click(function(event){
+    event.preventDefault();
+    console.log("Delete button pressed!"); // sanity check
+    buttonidholder = this.id;
+    alert("buttonidholder is "+buttonidholder);
+    addcolumn();
+});
+
+//
+// function addcolumn() {
+//       console.log("addcolumn route hit"); // sanity check
+//     $.ajax({
+//         url : "../deletetable/", // the endpoint
+//         type : "POST", // http method
+//         data : { buttonidholder : buttonidholder }, // data sent with the post request
+//
+//         // handle a successful response
+//         success : function(json) {
+//             $('#post-text').val(''); // remove the value from the input
+//             console.log(json); // log the returned json to the console
+//             console.log("success function"); // another sanity check
+//         },
+//
+//         // handle a non-successful response
+//         error : function(xhr,errmsg,err) {
+//             $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+//                 " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+//             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+//         }
+//     });
+// };
+
+
+
+
 
 
 

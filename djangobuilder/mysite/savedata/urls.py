@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^edittables/', views.edittables, name='edittables'),
     url(r'^createtable/', views.createtable, name='createtable'),# method to create table - no view
     url(r'^deletetable/', views.deletetable, name='deletetable'),
-    url(r'^printtables/', views.printtables, name='printtables')
-
+    url(r'^printtables/', views.printtables, name='printtables'),
+    url(r'^gettablestructure/', views.gettablestructure, name='gettablestructure'),
 ]
 

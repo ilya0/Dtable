@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b825493e-0599-4635-9be6-01e5e34cae4c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangobuilder/mysite/savedata/test.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/djangobuilder/mysite/savedata/test.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangobuilder/mysite/savedata/static/savedata/js/addons.js" afterPath="$PROJECT_DIR$/djangobuilder/mysite/savedata/static/savedata/js/addons.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangobuilder/mysite/savedata/templates/savedata/edit-columns.html" afterPath="$PROJECT_DIR$/djangobuilder/mysite/savedata/templates/savedata/edit-columns.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangobuilder/mysite/savedata/urls.py" afterPath="$PROJECT_DIR$/djangobuilder/mysite/savedata/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangobuilder/mysite/savedata/views.py" afterPath="$PROJECT_DIR$/djangobuilder/mysite/savedata/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="240" column="36" lean-forward="false" selection-start-line="240" selection-start-column="36" selection-end-line="240" selection-end-column="55" />
+            <state relative-caret-position="153">
+              <caret line="256" column="31" lean-forward="false" selection-start-line="256" selection-start-column="31" selection-end-line="256" selection-end-column="31" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -54,8 +57,8 @@
       <file leaf-file-name="edit-columns.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/templates/savedata/edit-columns.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="112" column="33" lean-forward="false" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
+            <state relative-caret-position="488">
+              <caret line="85" column="44" lean-forward="false" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -63,21 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="table-list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/templates/savedata/table-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="118" selection-end-column="32" />
+            <state relative-caret-position="-1230">
+              <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#span#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -89,14 +82,13 @@
       <file leaf-file-name="addons.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/static/savedata/js/addons.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="102" column="48" lean-forward="true" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
+            <state relative-caret-position="2794">
+              <caret line="127" column="0" lean-forward="true" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1492552955000" expanded="true" signature="1286:1293" ph="×" />
-                <marker date="1492552955000" expanded="true" signature="2627:2634" ph="×" />
-                <marker date="1492552955000" expanded="true" signature="3137:4217" ph="..." />
-                <marker date="1492552955000" expanded="true" signature="4014:4021" ph="×" />
+                <marker date="1492560865000" expanded="true" signature="1313:1320" ph="×" />
+                <marker date="1492560865000" expanded="true" signature="2654:2661" ph="×" />
+                <marker date="1492560865000" expanded="true" signature="3170:4250" ph="..." />
+                <marker date="1492560865000" expanded="true" signature="4047:4054" ph="×" />
               </folding>
             </state>
           </provider>
@@ -105,8 +97,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            <state relative-caret-position="660">
+              <caret line="30" column="65" lean-forward="false" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -117,8 +109,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="194">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -131,6 +123,7 @@
       <find>dtabledatabase</find>
       <find>tablelist route</find>
       <find>button</find>
+      <find>add co</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,13 +133,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/djangobuilder/mysite/mysite/settings.py" />
-        <option value="$PROJECT_DIR$/djangobuilder/mysite/savedata/urls.py" />
         <option value="$PROJECT_DIR$/djangobuilder/mysite/savedata/templates/savedata/table-list.html" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/djangobuilder/mysite/savedata/views.py" />
+        <option value="$PROJECT_DIR$/djangobuilder/mysite/savedata/test.py" />
         <option value="$PROJECT_DIR$/djangobuilder/mysite/savedata/static/savedata/js/addons.js" />
         <option value="$PROJECT_DIR$/djangobuilder/mysite/savedata/templates/savedata/edit-columns.html" />
-        <option value="$PROJECT_DIR$/djangobuilder/mysite/savedata/test.py" />
+        <option value="$PROJECT_DIR$/djangobuilder/mysite/savedata/urls.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/djangobuilder/mysite/savedata/views.py" />
       </list>
     </option>
   </component>
@@ -652,6 +645,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/objectorientedmodel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/mysite/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="904">
@@ -660,52 +677,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/common.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="321">
+          <caret line="124" column="18" lean-forward="false" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/static/savedata/js/addons.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="102" column="48" lean-forward="true" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
+        <state relative-caret-position="2794">
+          <caret line="127" column="0" lean-forward="true" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1492552955000" expanded="true" signature="1286:1293" ph="×" />
-            <marker date="1492552955000" expanded="true" signature="2627:2634" ph="×" />
-            <marker date="1492552955000" expanded="true" signature="3137:4217" ph="..." />
-            <marker date="1492552955000" expanded="true" signature="4014:4021" ph="×" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="240" column="36" lean-forward="false" selection-start-line="240" selection-start-column="36" selection-end-line="240" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <marker date="1492560865000" expanded="true" signature="1313:1320" ph="×" />
+            <marker date="1492560865000" expanded="true" signature="2654:2661" ph="×" />
+            <marker date="1492560865000" expanded="true" signature="3170:4250" ph="..." />
+            <marker date="1492560865000" expanded="true" signature="4047:4054" ph="×" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/templates/savedata/table-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="118" selection-end-column="32" />
+        <state relative-caret-position="-1230">
+          <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
           <folding>
             <element signature="n#style#0;n#span#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -713,21 +709,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="30" column="65" lean-forward="false" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/templates/savedata/edit-columns.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="112" column="33" lean-forward="false" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
+        <state relative-caret-position="488">
+          <caret line="85" column="44" lean-forward="false" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
           <folding>
             <element signature="n#style#0;n#button#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/test.py">
+    <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/savedata/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="153">
+          <caret line="256" column="31" lean-forward="false" selection-start-line="256" selection-start-column="31" selection-end-line="256" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
