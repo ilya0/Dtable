@@ -224,6 +224,18 @@ def show(request):
 
 
 
+
+def edittables(request):
+    print("edit route hit")
+    thing = name.objects.all() #query the database
+    context = {'thing': thing}  #this is a dictonary
+    print(context)
+    return render(request, 'savedata/table-edit.html', context)
+
+
+
+
+
 def editcolumns(request):
     print("editcolumns route hit")
     #set default table
@@ -231,8 +243,8 @@ def editcolumns(request):
     #get contents of table
     #render page
 
-    rendertable = "test"
-    rendertable = request.POST.get('buttonidholder')
+    rendertable = "savedata_name"
+    # rendertable = request.POST.get('buttonidholder')
 
     thing = name.objects.all() #query the database
 
@@ -243,20 +255,14 @@ def editcolumns(request):
     return render(request, 'savedata/edit-columns.html', context)
 
 
-def edittables(request):
-    print("edit route hit")
-    thing = name.objects.all() #query the database
-    context = {'thing': thing}  #this is a dictonary
-    print(context)
-    return render(request, 'savedata/table-edit.html', context)
+
 
 
 def gettablestructure(request):
-    tabletoview = "polls_question"
+    tabletoview = "savedata_name"
     # Create MetaData instance
-    # metadata = MetaData(eng, reflect=True)
+    metadata = MetaData(eng, reflect=True)
     print(metadata.tables)
-
     # saves the data from the table in question
     ex_table = metadata.tables[tabletoview]
 
@@ -269,6 +275,10 @@ def gettablestructure(request):
         json.dumps({"tabletitle is": "test"}),
         content_type="application/json"
     )
+
+
+
+
 
 
 #shows tables in database on page tablelist
