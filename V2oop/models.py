@@ -10,6 +10,8 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
+#this is the table of users
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
@@ -22,7 +24,7 @@ class User(Base):
 
     def __repr__(self):
         return "<User {}>".format(self.username)
-
+#this is the schema thats created by
 class Sheets(Base):
     __tablename__ = 'sheets'
     id = Column(Integer, primary_key=True)
