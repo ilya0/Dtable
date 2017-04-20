@@ -4,8 +4,8 @@ Create a DTable constructor that creates DTable objects that have
 id, name, internal, columns via ordered dict, also 
 
 
-
-
+connecting database
+https://www.blog.pythonlibrary.org/2010/09/10/sqlalchemy-connecting-to-pre-existing-databases/
 
 
 # this is a new class test

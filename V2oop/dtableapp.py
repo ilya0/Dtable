@@ -1,5 +1,12 @@
 from collections import OrderedDict
 import dtschemastoreapp
+from sqlalchemy import Column, Integer
+
+eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/dtabledatabase') # this is the connection to the database
+Session = sessionmaker(bind=engine)
+session = Session()
+Base.metadata.create_all(engine)
+metadata = MetaData(bind=engine)
 
 print("dtableapp imported")
 
@@ -13,6 +20,7 @@ class dtable(object):
 
     # expect DTcolumn objects
     def get_columns(self):
+        columns = Sheets('savedata_name', metadata, autoload=True)
         return self.columns
 
 

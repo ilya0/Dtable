@@ -14,13 +14,15 @@ Base = declarative_base() #declarative base class is created with this function
 
 class dtschemastore(object):
 
-    def get_schema(self):
+    def compair_schema(self):
     columnholder = []
     schema = self.session.query(models.Sheets_Schema).filter(models.Sheets_Schema.sheet_id==table_id).all()
     for col in schema
         columnholder.append(DTColumn(col.id,col.column_name,col.column_type))
         return dtable(table_id,table_name,dt_columns)
 
+    def get_schema(self,name):
+        return(dtable(name))
 
     def set_schema(self):
         #method to set the schema after is had been decided
