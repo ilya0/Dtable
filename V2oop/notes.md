@@ -7,6 +7,24 @@ id, name, internal, columns via ordered dict, also
 connecting database
 https://www.blog.pythonlibrary.org/2010/09/10/sqlalchemy-connecting-to-pre-existing-databases/
 
+  Dtable - creates the objects that will represent the tables that the users will implement
+  DTSchemastore - schema from database, compare the database object with the dtable object and also get objects from tdtable
+  Dtengine - deals with user defined data and applying it to the database
+  
+Example of the DTable object
+
+DTable(name: "test", [DTColumn(name:"a", type:integer)], {"a","array","of","column","names"))
+
+
+
+
+
+
+
+
+
+
+
 
 # this is a new class test
 # atributes are variables associated with an instance of class

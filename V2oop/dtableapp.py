@@ -1,67 +1,73 @@
 import collections
-import dtschemastoreapp
-from sqlalchemy import Column, Integer
+# import dtschemastoreapp
+from sqlalchemy import *
+import models
 
-eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/dtabledatabase') # this is the connection to the database
-Session = sessionmaker(bind=engine)
-session = Session()
-Base.metadata.create_all(engine)
-metadata = MetaData(bind=engine)
 
 print("dtableapp imported")
 
-
-
-class dtable(object):
-    # The class "constructor" - It's actually an initializer
-    def __init__(self, id, name, internal_name, columns):
-        self.id = id
+class DTColumn:
+    def __init__(self, name, column_type):
         self.name = name
-        self.internal_name = internal_name
-        self.columns = collections.OrderedDict()
-        self.columns = columns
+        self.column_type = column_type
 
-    # this needs to get columns in the
+
+
+
+
+class DTable:
+    # The class "constructor" - It's actually an initializer
+    def __init__(self, name):
+        #id and name and other params will be added when item is added to database
+        self.name = name
+        # this will be the columns array
+        self.columns = [] #array of all the column OBJECTS
+        self.column_names = {} #hash will be the actual data of that object
+
+
+    # get the columns of the current table
     def get_columns(self):
-        columns = Sheets('savedata_name', metadata, autoload=True)
-
         return self.columns
-
-
-    def add_columns(self,input):
-        #this is a column add function that the object contains
-        #this function needs to
-        #1.connect to the schema
-        #2.
-        self.column = input
-
-    def remove_column(self):
-        print("remove columns hit")
-
-    def get_tabledata(self):
-        meta.reflect(bind=eng)
-
-        for table in meta.tables:
-            print(table)
-
-    def printtable(self):
-        print(self.__repr__)
-
-
-    def __repr__(self):
-        return "<DTable  {} {} {} {}>".format(self.internal_name, self.id, self.name, self.columns)
-        # prints a printable representation  of the object
+    #this will print out the array
 
 
 
 
-    # add a column to the dynamically generated table
-    # def add_column(self,table_name, column_name, column_type):
-    #     table = Table(table_name, metadata)
-    #     col = sqlalchemy.Column(column_name, getattr(sa_types, column_type))
-    #     col.create(table, populate_default=True)
-    #
-    # # def add_column(self, dt_column_object):
-    # #     if not (isinstance(dt_column_object, DTColumn)):
-    # #         raise Exception("invalid")
-    # #     self.columns.append(dt_column_object)
+    #adds columns to the table requested
+    def add_column(self, input):
+        # typecheck if input is is an instance
+        if not(isinstance(input, DTColumn)):
+            raise Exception("not a class of DTColumn")
+        #this going to add the thing to the list
+
+        #need to check for duplicate names - add another data structure
+
+        name = input.name
+        if name in self.column_names:
+            raise Exception("duplicate column name")
+        # store name of the column to compare later
+        self.column_names[name] = 1
+        # store the data
+        self.columns.append(input)
+
+
+
+
+
+    def remove_column(self, name):
+        newcolumns = []
+
+        for x in self.columns:
+            if name == x.name:
+                del self.column_names[name]
+            else:
+                newcolumns.append(x)
+
+        self.columns = newcolumns
+
+
+
+
+
+
+
