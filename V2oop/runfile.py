@@ -4,4 +4,4 @@ import dtschemastoreapp
 table1 = dtableapp.dtable(1,"testname","internalnametext",["test", "test2"])
 
 print(table1.get_columns())
-print(table1)
+table1.printtable()

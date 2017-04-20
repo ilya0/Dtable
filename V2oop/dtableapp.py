@@ -1,4 +1,4 @@
-from collections import OrderedDict
+import collections
 import dtschemastoreapp
 from sqlalchemy import Column, Integer
 
@@ -13,11 +13,12 @@ print("dtableapp imported")
 
 
 class dtable(object):
+    # The class "constructor" - It's actually an initializer
     def __init__(self, id, name, internal_name, columns):
         self.id = id
         self.name = name
         self.internal_name = internal_name
-        # self.columns = OrderedDict()
+        self.columns = collections.OrderedDict()
         self.columns = columns
 
     # this needs to get columns in the
@@ -43,6 +44,8 @@ class dtable(object):
         for table in meta.tables:
             print(table)
 
+    def printtable(self):
+        print(self.__repr__)
 
 
     def __repr__(self):
