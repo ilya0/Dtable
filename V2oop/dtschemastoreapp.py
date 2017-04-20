@@ -14,7 +14,7 @@ Base = declarative_base() #declarative base class is created with this function
 
 class dtschemastore(object):
 
-    def compair_schema(self):
+    def compare_schema(self):
     columnholder = []
     schema = self.session.query(models.Sheets_Schema).filter(models.Sheets_Schema.sheet_id==table_id).all()
     for col in schema

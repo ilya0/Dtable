@@ -10,6 +10,8 @@ metadata = MetaData(bind=engine)
 
 print("dtableapp imported")
 
+
+
 class dtable(object):
     def __init__(self, id, name, internal_name, columns):
         self.id = id
@@ -18,13 +20,18 @@ class dtable(object):
         # self.columns = OrderedDict()
         self.columns = columns
 
-    # expect DTcolumn objects
+    # this needs to get columns in the
     def get_columns(self):
         columns = Sheets('savedata_name', metadata, autoload=True)
+
         return self.columns
 
 
     def add_columns(self,input):
+        #this is a column add function that the object contains
+        #this function needs to
+        #1.connect to the schema
+        #2.
         self.column = input
 
     def remove_column(self):

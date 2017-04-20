@@ -24,7 +24,10 @@ class User(Base):
 
     def __repr__(self):
         return "<User {}>".format(self.username)
-#this is the schema thats created by
+
+
+
+#this is a table that contains all the tables and refferences all the users
 class Sheets(Base):
     __tablename__ = 'sheets'
     id = Column(Integer, primary_key=True)
@@ -40,6 +43,7 @@ class Sheets(Base):
                 self.user_id,
                 self.sheet_name)
 
+#this is a table to create actual tables to house all the data
 class Sheets_Schema(Base):
     __tablename__ = 'sheets_schema'
     id = Column(Integer, primary_key=True)
