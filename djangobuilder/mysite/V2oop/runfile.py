@@ -1,5 +1,5 @@
 import dtableapp
-# import dtschemastoreapp
+import dtschemastoreapp
 # _(self, id, name, internal_name, columns):
 
 
@@ -22,17 +22,17 @@ def dtabletesting():
 
     print(table1)
 
-
-dtabletesting()
-
-
-
-
-# def dtschemastoretesting():
 #
-#     dtschemastoreobject1 = dtschemastoreapp.dtschemastoreSQL.get_schema("savedata_name")
-#     print(dtschemastoreobject1)
-#
-#
-#
-# dtschemastoretesting()
+# dtabletesting()
+
+
+
+
+def dtschemastoretesting():
+
+    dtschemastoreobject1 = dtschemastoreapp.dtschemastoreSQL.get_schema("savedata_name")
+    print(dtschemastoreobject1)
+
+
+
+dtschemastoretesting()

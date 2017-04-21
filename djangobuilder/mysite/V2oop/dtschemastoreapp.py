@@ -1,7 +1,9 @@
-import dtableapp
-import models
+
+from sqlalchemy import *
+from sqlalchemy.ext.declarative import declarative_base
 import sqlalchemy
-from django.db import models
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 
 #what dtschemastore does
@@ -16,7 +18,8 @@ from django.db import models
 # sqlstore = DTSchemaStoreSQL(db)
 # datastore = DTDataEngineSQL(db)
 eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/dtabledatabase') # this is the connection to the database
-meta = MetaData() # creates a meta object to hold all the things
+meta = MetaData()
+# creates a meta object to hold all the things
 Base = declarative_base() #declarative base class is created with this function
 Session = sessionmaker(bind=eng)
 
@@ -51,9 +54,9 @@ class dtschemastoreSQL(object):
 
 
     def get_schema(self,name):
-        tablename = name
+        # tablename = name
         insp = inspect(eng)
-        print(insp.get_columns(tablename))
+        print(insp.get_columns(name))
 
 
 
@@ -108,7 +111,7 @@ class dtschemastoreSQL(object):
 
 
 
-    class DTSchemaStoreJSON(self):
+    class DTSchemaStoreJSON(object):
         pass
 
 
