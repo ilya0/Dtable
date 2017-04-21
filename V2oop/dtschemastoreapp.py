@@ -26,7 +26,7 @@ class dtschemastoreSQL(object):
     # query database for current schema
     # take the input schema and compare them by iterating them the same where
     # find out what is not the same
-    
+
         columnholder = []
         schema = self.session.query(models.Sheets_Schema).filter(models.Sheets_Schema.sheet_id==table_id).all()
     for col in schema

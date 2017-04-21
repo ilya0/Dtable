@@ -1,7 +1,7 @@
 import collections #this can be used for dict
 # import dtschemastoreapp
 from sqlalchemy import *
-import models
+# import models
 
 
 print("dtableapp imported")
@@ -33,7 +33,7 @@ class DTable:
 
 
 
-    #adds columns to the table requested
+    #adds columns to the table requested - takes object
     def add_column(self, input):
         # typecheck if input is is an instance
         if not(isinstance(input, DTColumn)):
@@ -53,7 +53,6 @@ class DTable:
 
 
 
-
     def remove_column(self, name):
         newcolumns = []
 
@@ -68,7 +67,10 @@ class DTable:
 
 
 
+    def __str__(self):
 
+        return "<DTable  {} {} {}>".format(self.name, self.columns, self.column_names)
+            # prints a printable representation  of the object
 
 
 
