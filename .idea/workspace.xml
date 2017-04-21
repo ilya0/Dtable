@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b825493e-0599-4635-9be6-01e5e34cae4c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangobuilder/mysite/V2oop/dtschemastoreapp.py" afterPath="$PROJECT_DIR$/djangobuilder/mysite/V2oop/dtschemastoreapp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangobuilder/mysite/V2oop/runfile.py" afterPath="$PROJECT_DIR$/djangobuilder/mysite/V2oop/runfile.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="dtschemastoreapp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/V2oop/dtschemastoreapp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="123">
+              <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
                 <element signature="e#1#25#0" expanded="true" />
               </folding>
@@ -998,8 +997,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/djangobuilder/mysite/V2oop/dtschemastoreapp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="123">
+          <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
             <element signature="e#1#25#0" expanded="true" />
           </folding>

@@ -25,7 +25,7 @@ Session = sessionmaker(bind=eng)
 
 
 
-
+storedschemacolumns = ""
 
 
 class dtschemastoreSQL(object):
@@ -36,12 +36,15 @@ class dtschemastoreSQL(object):
 
     #takes two objects and compares them so that the change can be implemented in to the schema
     #returns the changes that should be made?
-
-
-    # def compare_schema(self,input):
-    #     # query database for current schema
-    #     # take the input schema and compare them by iterating them the same where
-    #     # find out what is not the same
+    #
+    #
+    # def compare_schema(self,dtableinputobject,getschemaname):
+    #     get_schema(getschemaname)# query database for current schema
+    #
+    #     # dtable.columns[0]
+    #     # get table objects from dtableinputobject
+    #     #compair
+    #
     #     columnholder = []
     #     schema = self.session.query(models.Sheets_Schema).filter(models.Sheets_Schema.sheet_id==table_id).all()
     #
@@ -49,14 +52,16 @@ class dtschemastoreSQL(object):
     #         columnholder.append(DTColumn(col.id,col.column_name,col.column_type))
     #         return dtable(table_id,table_name,dt_columns)
     #
-
+    #
 
 
 
     def get_schema(name):
         # tablename = name
         insp = inspect(eng)
-        print(insp.get_columns(name))
+        storedschemacolumns = insp.get_columns(name)
+        print(storedschemacolumns)
+
 
 
 
@@ -103,16 +108,9 @@ class dtschemastoreSQL(object):
 
 
 
-#need to test this
-    def printschema(self,table):
-        for t in metadata.sorted_tables:
-           print(t.name)
 
 
 
-
-    class DTSchemaStoreJSON(object):
-        pass
 
 
 
@@ -121,3 +119,8 @@ class dtschemastoreSQL(object):
     def __repr__(self):
         return "<DTable  {} >".format(self.name)
             # prints a printable representation  of the object
+
+
+
+class DTSchemaStoreJSON(object):
+    pass
