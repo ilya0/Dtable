@@ -4,7 +4,9 @@ import dtableapp
 
 
 
-table1 = dtableapp.dtable(1,"testname","internalnametext",["test", "test2"])
+table1 = dtableapp.DTable("dtable1test")
+table2 = dtableapp.DTable("dtable2test")
+
 
 print(table1.get_columns())
 table1.printtable()

@@ -1,4 +1,4 @@
-import collections
+import collections #this can be used for dict
 # import dtschemastoreapp
 from sqlalchemy import *
 import models
@@ -57,6 +57,7 @@ class DTable:
     def remove_column(self, name):
         newcolumns = []
 
+        #if the item exists
         for x in self.columns:
             if name == x.name:
                 del self.column_names[name]

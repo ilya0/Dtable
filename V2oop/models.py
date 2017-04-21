@@ -47,8 +47,8 @@ class Sheets(Base):
 
     __tablename__ = 'sheets'
     id = models.CharField(Integer, primary_key=True)
-    user_id = models.CharField(max_length=200, unique=True)
-    sheet_name = models.CharField(max_length=200, unique=True)
+    user_id = models.CharField(max_length=200)
+    sheet_name = models.CharField(max_length=200)
 
     def __init__(self, user_id, sheet_name):
         self.user_id = user_id
@@ -63,12 +63,12 @@ class Sheets(Base):
 class Sheets_Schema(Base):
 
     __tablename__ = 'sheets_schema'
-    id = Column(Integer, primary_key=True)
-    sheet_id = Column(Integer, ForeignKey("sheets.id", ondelete='CASCADE'))
+    id = models.CharField(Integer, primary_key=True)
+    sheet_id = models.CharField(Integer, ForeignKey("sheets.id", ondelete='CASCADE'))
     sheet = relationship('Sheets',
             backref=backref('sheets_schema', lazy='dynamic', cascade='all, delete-orphan'))
-    column_name = Column(String(150), unique=True)
-    column_type = Column(String(80))
+    column_name = models.CharField(max_length=200, unique=True)
+    column_type = models.CharField(max_length=200)
 
     def __init__(self, sheet, column_name, column_type):
         self.sheet = sheet
