@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'V2oop.apps.SavedataConfig',
     'savedata.apps.SavedataConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
