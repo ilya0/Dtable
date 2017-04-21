@@ -53,7 +53,7 @@ class dtschemastoreSQL(object):
 
 
 
-    def get_schema(self,name):
+    def get_schema(name):
         # tablename = name
         insp = inspect(eng)
         print(insp.get_columns(name))
