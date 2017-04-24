@@ -71,6 +71,32 @@ class DTable:
     #         print(x.[counter])
     #         counter+=2
 
+
+
+
+
+# works with the actual data and modifies the actual data table
+class dtabledata:
+
+    def __init__(self, schema, data_engine)
+        self.schema = schema
+        self.data_engine = data_engine
+        pass
+    pass
+
+    def get_row_by_id(self,id):
+        row = self.data_engine.get_row(self.schema,id)
+        return row
+    pass
+
+    def list_row(self,id):
+    pass
+
+
+
+
+
+
 #returns a viewable print representation of the object
     def __str__(self):
 

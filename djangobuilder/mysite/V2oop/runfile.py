@@ -28,11 +28,12 @@ import dtschemastoreapp
 
 
 
-def dtschemastoretesting(name):
+def dtschemastoretesting(id):
 
-    dtschemastoreobject1 = dtschemastoreapp.dtschemastoreSQL.get_schema(name)
+    dtschemastoreobject1 = dtschemastoreapp.dtschemastoreSQL.get_schema(id) # running get schema from the dtschemastore class in dtschemastoreapp
     print(dtschemastoreobject1)
 
 
 
-dtschemastoretesting("polls_question")
+# dtschemastoretesting(1) #not working because I need to setup IDs for tables in db
+dtschemastoretesting("test")

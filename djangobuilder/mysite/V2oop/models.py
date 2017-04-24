@@ -11,8 +11,8 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-class User(Base):
-    __tablename__ = 'users'
+class dt_user_table(Base):
+    __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     username = Column(String(80), unique=True)
     email = Column(String(120), unique=True)
@@ -24,11 +24,15 @@ class User(Base):
     def __repr__(self):
         return "<User {}>".format(self.username)
 
-class Sheets(Base):
+class dt_sheets(Base):
     __tablename__ = 'sheets'
     id = Column(Integer, primary_key=True)
-    user_id =  Column(Integer)
-    sheet_name = Column(String(180), unique=True)
+    table_name = (varchar(100))
+    user_id =  Column(Integer, ForeignKey("dt_user_table.id", ondelete='CASCADE'))
+    column_name = Column(String(180), unique=True)
+    column_sequence = Column(Integer)
+    table_id = Column(Integer)
+
 
     def __init__(self, user_id, sheet_name):
         self.user_id = user_id
@@ -39,22 +43,20 @@ class Sheets(Base):
                 self.user_id,
                 self.sheet_name)
 
-class Sheets_Schema(Base):
-    __tablename__ = 'sheets_schema'
+class dt_data(Base):
+    __tablename__ = 'data'
     id = Column(Integer, primary_key=True)
-    sheet_id = Column(Integer, ForeignKey("sheets.id", ondelete='CASCADE'))
-    sheet = relationship('Sheets',
-            backref=backref('sheets_schema', lazy='dynamic', cascade='all, delete-orphan'))
-    column_name = Column(String(150), unique=True)
-    column_type = Column(String(80))
-    sequence_number = Column(Integer)
+    column_id = Column(Integer, ForeignKey("dt_sheets.id", ondelete='CASCADE'))
+    row_sequence = Column(String(150))
+    value = Column(String(150))
+    column_name = Column(varchar(100))
 
-    def __init__(self, sheet, column_name, column_type, sequence_number):
-        self.sheet = sheet
-        self.column_name = column_name
-        self.column_type = column_type
-        self.sequence_number = sequence_number
-
-    def __repr__(self):
-        return "<Sheets_Schema {} {} {} {}>".format(
-                self.sheet, self.column_name, self.column_type, self.sequence_number)
+    # def __init__(self, sheet, column_name, column_type, sequence_number):
+    #     self.sheet = sheet
+    #     self.column_name = column_name
+    #     self.column_type = column_type
+    #     self.sequence_number = sequence_number
+    #
+    # def __repr__(self):
+    #     return "<Sheets_Schema {} {} {} {}>".format(
+    #             self.sheet, self.column_name, self.column_type, self.sequence_number)

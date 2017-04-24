@@ -25,7 +25,7 @@ Session = sessionmaker(bind=eng)
 
 
 
-storedschemacolumns = ""
+storedschemacolumns = "" #storing columns from get_schema
 
 
 class dtschemastoreSQL(object):
@@ -43,7 +43,7 @@ class dtschemastoreSQL(object):
     #
     #     # dtable.columns[0]
     #     # get table objects from dtableinputobject
-    #     #compair
+    #     #compare
     #
     #     columnholder = []
     #     schema = self.session.query(models.Sheets_Schema).filter(models.Sheets_Schema.sheet_id==table_id).all()
@@ -55,18 +55,33 @@ class dtschemastoreSQL(object):
     #
 
 
-
-    def get_schema(name):
+## gets the columns from the input table by name **needs to be changed to id
+    def get_schema(id):
         # tablename = name
         insp = inspect(eng)
-        storedschemacolumns = insp.get_columns(name)
+        storedschemacolumns = insp.get_columns(id)
         print(storedschemacolumns)
 
 
 
 
 
+    def update_column:
+        pass
 
+    def delete_column:
+        pass
+
+    def set_schema:
+        pass
+
+    def get_alchemy_table(self,dtable):
+        pass
+
+    def get_data(self,dtable_instance):
+        #returns data object
+            return dtabledata(dtable_instance,self)
+        pass
 
 
 #set schema takes the dtable object and the creates the connections and sets object into a schema
