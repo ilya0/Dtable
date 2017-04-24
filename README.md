@@ -29,6 +29,16 @@ Goals for Apr 17 week
 - change front end to be able to add columns to tables that were created
 - create a selector for tables
 
+Goals April 24 week
+- Refactor database
+- create schema compare methodology
+    - use hard code same object to test
+- create set schema method
+
+
+
+
+
 
 
 
