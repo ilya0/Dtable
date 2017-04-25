@@ -55,7 +55,7 @@ class dtschemastoreSQL(object):
     #
 
 
-## gets the columns from the input table by name **needs to be changed to id
+## gets the columns from the input table by name
     def get_schema(id):
         # tablename = name
         insp = inspect(eng)
@@ -66,13 +66,13 @@ class dtschemastoreSQL(object):
 
 
 
-    def update_column:
+    def update_column(self):
         pass
 
-    def delete_column:
+    def delete_column(self):
         pass
 
-    def set_schema:
+    def set_schema(self):
         pass
 
     def get_alchemy_table(self,dtable):
@@ -80,7 +80,7 @@ class dtschemastoreSQL(object):
 
     def get_data(self,dtable_instance):
         #returns data object
-            return dtabledata(dtable_instance,self)
+        #    return dtabledata(dtable_instance,self)
         pass
 
 

@@ -24,6 +24,10 @@ class dt_user_table(Base):
     def __repr__(self):
         return "<User {}>".format(self.username)
 
+#models needs to be setup correctly with foreignkeys,
+
+
+
 class dt_sheets(Base):
     __tablename__ = 'sheets'
     id = Column(Integer, primary_key=True)

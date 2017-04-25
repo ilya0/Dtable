@@ -64,30 +64,30 @@ class DTable:
 
         self.columns = newcolumns
 
-# not working at the momement
-    # def print_columns(self):
-    #     counter = 0
-    #     for x in self.columns:
-    #         print(x.[counter])
-    #         counter+=2
-
 
 
 
 
 # works with the actual data and modifies the actual data table
+
+
+
 class dtabledata:
 
-    def __init__(self, schema, data_engine)
+    def __init__(self, schema, data_engine):
         self.schema = schema
         self.data_engine = data_engine
-        pass
-    pass
+
+
+
+
 
     def get_row_by_id(self,id):
-        row = self.data_engine.get_row(self.schema,id)
+        row = self.data_engine.get_row(self.schema,id):
         return row
-    pass
+
+
+
 
     def list_row(self,id):
     pass
