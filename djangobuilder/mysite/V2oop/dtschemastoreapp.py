@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+from sqlalchemy.schema import CreateSchema
 
 #what dtschemastore does
 #creates objects of currently populated databases
@@ -50,13 +50,19 @@ class dtschemastoreSQL(object):
     # returns the changes that should be made?
 
 
-    def compare_schema(self,dtableinputobject,currenttablename):
-        oldschema = get_schema(currenttablename)# query database for current schema
+    def compare_schema(dtableinputobject,currenttablename):
+        #this needs to be changed to the comapare schema, but im using the long way for now
+        insp = inspect(eng)
+        oldschema = insp.get_columns(currenttablename)# query database for current schema
+
+
         newschema = dtableinputobject
+
         oldcolumncount = len(oldschema)
-        newcolumncount =  len(newschema)
+        newcolumncount = len(newschema)
 
         if oldcolumncount == newcolumncount:
+    
             # needs to continue going on the compare
             #if nothing changes then
             # apply data with no schema change
@@ -76,24 +82,17 @@ class dtschemastoreSQL(object):
 
 
 
-## gets the columns from the input table by name
-    def get_schema(id):
-        # tablename = name
-        insp = inspect(eng)
-        storedschemacolumns = insp.get_columns(id)
-        print(storedschemacolumns)
-        return(storedschemacolumns)
-
-
-
 
     def update_schema_column(self):
         pass
 
-    def delete_schema_column(self):
+    def delete_schema_column(self,id):
+        old_column = session.query(Columns).filter_by(id=id).one()
+        delete(old_column)
         pass
 
-    def set_schema(self):
+    def set_schema(self,newschema):
+        engine.execute(CreateSchema(newschema))
         pass
 
     def get_alchemy_table(self,dtable):

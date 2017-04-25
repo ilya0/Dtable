@@ -23,6 +23,35 @@ postgres=# \e                 # edit in $EDITOR
 
 
 
+Structure for schema
+
+{'name': 'id', 'type': INTEGER(), 'nullable': False, 'default': 'nextval(\'"User_id_seq"\'::regclass)', 'autoincrement': True}
+{'name': 'username', 'type': VARCHAR(length=100), 'nullable': True, 'default': None, 'autoincrement': False},
+{'name': 'email', 'type': VARCHAR(length=100), 'nullable': True, 'default': None, 'autoincrement': False}
+
+
+ structure is:
+ name
+ type
+ nullable
+ default
+ autoincrement
+
+
+First test can be
+1. same amount of objects
+2. compare all the names between the objects
+3. go down the parameters and compare them
+
+
+
+
+
+
+
+
+
+
 Goals for Apr 17 week
 - refactor and clean up code - working
 - redo code for tablelist to show all the tables in the database - finished

@@ -43,15 +43,15 @@ def dtschemastoretesting(id):
 
 
 
-testvar = [{'name': 'id', 'type': "INTEGER()", 'nullable': False, 'default': 'nextval(\'"User_id_seq"\'::regclass)', 'autoincrement': True}, {'name': 'username', 'type': "VARCHAR(length=100)", 'nullable': True, 'default': None, 'autoincrement': False}, {'name': 'email', 'type': "VARCHAR(length=100)", 'nullable': True, 'default': None, 'autoincrement': False}]
+testvarschema = [{'name': 'id', 'type': "INTEGER()", 'nullable': False, 'default': 'nextval(\'"User_id_seq"\'::regclass)', 'autoincrement': True}, {'name': 'username', 'type': "VARCHAR(length=100)", 'nullable': True, 'default': None, 'autoincrement': False}, {'name': 'email', 'type': "VARCHAR(length=100)", 'nullable': True, 'default': None, 'autoincrement': False}]
 
 testarray = [{'name': 'id'}]
 print("testvar.name ======")
-print(testvar[0].get('name'))
+print(testvarschema[0].get('name'))
 print(len(testarray))
 
 
-dtschemastoreapp.dtschemastoreSQL.compare_schema(testvar,testvar)
+dtschemastoreapp.dtschemastoreSQL.compare_schema(testvarschema,"dt_data")
 
 # {'name': 'id', 'type': INTEGER(), 'nullable': False, 'default': 'nextval(\'"User_id_seq"\'::regclass)', 'autoincrement': True}
 # {'name': 'username', 'type': VARCHAR(length=100), 'nullable': True, 'default': None, 'autoincrement': False},
