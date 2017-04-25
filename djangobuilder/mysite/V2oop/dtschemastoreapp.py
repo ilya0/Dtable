@@ -14,7 +14,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 
-#%%%%database connections
+# %%%%database connections
 # sqlstore = DTSchemaStoreSQL(db)
 # datastore = DTDataEngineSQL(db)
 eng = sqlalchemy.create_engine('postgresql+psycopg2://admin:@localhost:5432/dtabledatabase') # this is the connection to the database
@@ -34,25 +34,46 @@ class dtschemastoreSQL(object):
         self.name = name
 
 
-    #takes two objects and compares them so that the change can be implemented in to the schema
-    #returns the changes that should be made?
-    #
-    #
-    # def compare_schema(self,dtableinputobject,getschemaname):
-    #     get_schema(getschemaname)# query database for current schema
-    #
-    #     # dtable.columns[0]
-    #     # get table objects from dtableinputobject
-    #     #compare
-    #
-    #     columnholder = []
-    #     schema = self.session.query(models.Sheets_Schema).filter(models.Sheets_Schema.sheet_id==table_id).all()
-    #
-    #     for col in schema
-    #         columnholder.append(DTColumn(col.id,col.column_name,col.column_type))
-    #         return dtable(table_id,table_name,dt_columns)
-    #
-    #
+        ## gets the columns from the input table by name
+        def get_schema(id):
+            # tablename = name
+            insp = inspect(eng)
+            storedschemacolumns = insp.get_columns(id)
+            print(storedschemacolumns)
+            return (storedschemacolumns)
+
+
+
+
+
+    # takes two objects and compares them so that the change can be implemented in to the schema
+    # returns the changes that should be made?
+
+
+    def compare_schema(self,dtableinputobject,currenttablename):
+        oldschema = get_schema(currenttablename)# query database for current schema
+        newschema = dtableinputobject
+        oldcolumncount = len(oldschema)
+        newcolumncount =  len(newschema)
+
+        if oldcolumncount == newcolumncount:
+            # needs to continue going on the compare
+            #if nothing changes then
+            # apply data with no schema change
+            print("same schema")
+        else:
+            # change the schema
+            # apply the data
+            print("different schema")
+
+        # columnholder = []
+        # schema = self.session.query(models.Sheets_Schema).filter(models.Sheets_Schema.sheet_id==table_id).all()
+        #
+        # for col in schema
+        #     columnholder.append(DTColumn(col.id,col.column_name,col.column_type))
+        #     return dtable(table_id,table_name,dt_columns)
+
+
 
 
 ## gets the columns from the input table by name
@@ -61,15 +82,15 @@ class dtschemastoreSQL(object):
         insp = inspect(eng)
         storedschemacolumns = insp.get_columns(id)
         print(storedschemacolumns)
+        return(storedschemacolumns)
 
 
 
 
-
-    def update_column(self):
+    def update_schema_column(self):
         pass
 
-    def delete_column(self):
+    def delete_schema_column(self):
         pass
 
     def set_schema(self):
@@ -83,23 +104,23 @@ class dtschemastoreSQL(object):
         #    return dtabledata(dtable_instance,self)
         pass
 
-
-#set schema takes the dtable object and the creates the connections and sets object into a schema
+#
+# set schema takes the dtable object and the creates the connections and sets object into a schema
 #     def set_schema(self,dtableobject):
-#
-#         # need to parse the info
-#         # set the name
-#         # give the table an ID
-#         #
-#         #receives and object and applies it to the the database
-#         #compare the table to the dtable object to see if it is already in existance
-#         #use the id to compare the table
-#
-#         #if the id is None - it is a new
-#         #if there is an id
-#
-#
-#
+
+        # need to parse the info
+        # set the name
+        # give the table an ID
+        #
+        #receives and object and applies it to the the database
+        #compare the table to the dtable object to see if it is already in existance
+        #use the id to compare the table
+
+        #if the id is None - it is a new
+        #if there is an id
+
+
+
 #         # tabletitle = request.POST.get('the_post') #this is a get to get the information from a ajax call
 #
 # #still needs a compare function here!!!
@@ -120,7 +141,7 @@ class dtschemastoreSQL(object):
 #         for item in rs:
 #             print(item.col1, item.col2)
 #         # We iterate through the result set and print two columns for all returned rows.
-
+#
 
 
 

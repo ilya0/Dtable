@@ -1,9 +1,15 @@
 # engine works with the data and does that actual placements in to the database
-#
 
-# get data method
-    #add
 
-#gen_table
+
 
 #needs a method that returns a sql alchemy object
+
+class data_engine
+
+    def get_data(self,table):
+        pass
+
+
+    def gen_table(self,table):
+        pass

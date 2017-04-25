@@ -66,12 +66,21 @@ class DTable:
 
 
 
+#returns a viewable print representation of the object
+    def __str__(self):
+
+        return "<DTable  {} {} {}>".format(self.name, self.columns, self.column_names)
+            # prints a printable representation  of the object
+
+
+
+
+
+
+
 
 
 # works with the actual data and modifies the actual data table
-
-
-
 class dtabledata:
 
     def __init__(self, schema, data_engine):
@@ -83,25 +92,14 @@ class dtabledata:
 
 
     def get_row_by_id(self,id):
-        row = self.data_engine.get_row(self.schema,id):
+        # row = self.data_engine.get_row(self.schema,id):
+        row = id
         return row
 
 
 
 
     def list_row(self,id):
-    pass
-
-
-
-
-
-
-#returns a viewable print representation of the object
-    def __str__(self):
-
-        return "<DTable  {} {} {}>".format(self.name, self.columns, self.column_names)
-            # prints a printable representation  of the object
-
+        pass
 
 

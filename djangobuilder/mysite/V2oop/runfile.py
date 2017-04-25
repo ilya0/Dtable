@@ -36,6 +36,30 @@ def dtschemastoretesting(id):
 
 
 # dtschemastoretesting(1) #not working because I need to setup IDs for tables in db
-dtschemastoretesting("dt_user_table")
+# dtschemastoretesting("dt_user_table")
 
-testvar = [{'name': 'id', 'type': INTEGER(), 'nullable': False, 'default': 'nextval(\'"User_id_seq"\'::regclass)', 'autoincrement': True}, {'name': 'username', 'type': VARCHAR(length=100), 'nullable': True, 'default': None, 'autoincrement': False}, {'name': 'email', 'type': VARCHAR(length=100), 'nullable': True, 'default': None, 'autoincrement': False}]
+
+
+
+
+
+testvar = [{'name': 'id', 'type': "INTEGER()", 'nullable': False, 'default': 'nextval(\'"User_id_seq"\'::regclass)', 'autoincrement': True}, {'name': 'username', 'type': "VARCHAR(length=100)", 'nullable': True, 'default': None, 'autoincrement': False}, {'name': 'email', 'type': "VARCHAR(length=100)", 'nullable': True, 'default': None, 'autoincrement': False}]
+
+testarray = [{'name': 'id'}]
+print("testvar.name ======")
+print(testvar[0].get('name'))
+print(len(testarray))
+
+
+dtschemastoreapp.dtschemastoreSQL.compare_schema(testvar,testvar)
+
+# {'name': 'id', 'type': INTEGER(), 'nullable': False, 'default': 'nextval(\'"User_id_seq"\'::regclass)', 'autoincrement': True}
+# {'name': 'username', 'type': VARCHAR(length=100), 'nullable': True, 'default': None, 'autoincrement': False},
+# {'name': 'email', 'type': VARCHAR(length=100), 'nullable': True, 'default': None, 'autoincrement': False}
+
+# structure is:
+# name
+# type
+# nullable
+# default
+# autoincrement
