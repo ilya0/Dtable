@@ -35,7 +35,7 @@ Session = sessionmaker(bind=eng)
 
 
 
-class dtschemastoreJSON(object):
+class DTSchemaStoreJSON(object):
     pass
 
 
@@ -45,7 +45,7 @@ class dtschemastoreJSON(object):
 
 
 
-class dtschemastoreSQL(object):
+class DTSchemaStoreSQL(object):
 
     def __init__(self,name):
         self.name = name
@@ -97,7 +97,10 @@ class dtschemastoreSQL(object):
 
 
 
-    def update_schema_column(self):
+    def add_schema_column(self,dtableobject):
+        #dtableobject should have:
+        #newtablename
+        #newtableID
 
         pass
 
@@ -136,6 +139,8 @@ class dtschemastoreSQL(object):
         # droping an existing table
     def droptable(dtable):
         sqlalchemy.Table("{}".format(dtable.name),meta).drop()
+
+
 
 
 

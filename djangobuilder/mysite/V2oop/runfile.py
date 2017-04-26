@@ -16,7 +16,8 @@ def createobject(name):
     table1.add_column(column1)
     table1.add_column(column2)
     table1.add_column(column3)
-
+    table1.delete_column(0)
+    table1.delete_column(1)
 
     # table1 should look like dtable1test((column1,integer), (column2,integer))
     # print(table1.get_columns())
@@ -28,7 +29,7 @@ def createobject(name):
 
 
 # running get schema from the dtschemastore class in dtschemastoreapp
-def dtschemastoretesting(id):
+def DTSchemaStoretesting(id):
 
     dtschemastoreobject1 = dtschemastoreapp.dtschemastoreSQL.get_schema(id)
     print(dtschemastoreobject1)
@@ -57,21 +58,26 @@ def dtschemastoretesting(id):
 
 
 #-- to create a table --
-inputname = "tabletest 6"
+inputname = "runfiletestabledelcolumn"
 
 
 createobject(inputname)
 tempobject = createobject(inputname) # create object
-print(tempobject.name)
-
+print(tempobject)
 # set the schema from the dtable object
-#dtschemastoreapp.dtschemastoreSQL.set_schema(tempobject)
+#DTSchemaStoreapp.DTSchemaStoreSQL.set_schema(tempobject)
 
 # send the data in the data engine using the same object
 #dtdataengineapp.dt_data_engineSQL.gen_table(dtableobject) #not working currently
 
 
-# $$ working on drop table
-# -- drop table --
-print(inputname+ " Deleted")
-dtschemastoreapp.dtschemastoreSQL.droptable(tempobject)
+
+
+
+# # -- drop table --
+# print(inputname+ " Deleted")
+# DTSchemaStoreapp.DTSchemaStoreSQL.droptable(tempobject)
+
+
+# -- Delete row --
+

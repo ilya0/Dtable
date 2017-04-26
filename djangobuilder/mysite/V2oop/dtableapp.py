@@ -20,9 +20,9 @@ class DTable:
         #id and name and other params will be added when item is added to database
         self.name = name
         # this will be the columns array
-        self.columns = [] #array of all the column OBJECTS
+        self.columns = [] #array of all the new column OBJECTS
         self.column_names = {} #hash will be the actual data of that object
-
+        self.delete_columns = []
 
     # get the columns of the current table
     def get_columns(self):
@@ -51,7 +51,7 @@ class DTable:
 
 
 
-
+    #method to add a list of columns to be removed by id
     def remove_column(self, name):
         newcolumns = []
 
@@ -64,6 +64,10 @@ class DTable:
 
         self.columns = newcolumns
 
+
+    def delete_column(self, id):
+        self.delete_columns.append(id)
+        print("columns to delete",self.delete_columns)
 
 
 #returns a viewable print representation of the object

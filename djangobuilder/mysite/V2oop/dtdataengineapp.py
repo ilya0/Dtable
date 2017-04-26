@@ -21,13 +21,13 @@ class dt_data_engine():
 
 
 
-class dt_data_engineSQL(dt_data_engine):
+class DTDataEngineSQL(dt_data_engine):
 
     def get_data(self,table):
         pass
 
 
-#generates the table
+    #generates the table
     def gen_table(self,table):
         metadata = sqlalchemy.MetaData(self.engine)
         table = sqlalchemy.Table(
