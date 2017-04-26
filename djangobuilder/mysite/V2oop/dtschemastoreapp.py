@@ -1,10 +1,18 @@
-
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect, HttpResponse
+from django.urls import reverse
+from django.views import generic
+# from . import models
+# from .models import name
+# from .forms import NameForm
+from django import forms
+import datetime
+import json
 from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.schema import CreateSchema
 
 #what dtschemastore does
 #creates objects of currently populated databases
@@ -125,16 +133,11 @@ class dtschemastoreSQL(object):
 
 
 
+        # droping an existing table
+    def droptable(dtable):
+        sqlalchemy.Table("{}".format(dtable.name),meta).drop()
 
 
-    def get_alchemy_table(self,dtable):
-        pass
-
-
-    def get_data(self,dtable_instance):
-        #returns data object
-        #    return dtabledata(dtable_instance,self)
-        pass
 
 
 

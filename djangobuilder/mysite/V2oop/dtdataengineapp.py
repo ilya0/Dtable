@@ -19,7 +19,7 @@ Session = sessionmaker(bind=eng)
 class dt_data_engine():
     pass
 
-dtdataengineapp
+
 
 class dt_data_engineSQL(dt_data_engine):
 
@@ -37,9 +37,10 @@ class dt_data_engineSQL(dt_data_engine):
 
 
 
+    def get_data(self,dtable_instance):
+        #returns data object
+        #    return dtabledata(dtable_instance,self)
+        pass
 
 
 
-#droping an existing table
-    def droptable(self,dtable):
-        sqlalchemy.Table("table_{}".format(dtable.name), self.metadata).drop()
