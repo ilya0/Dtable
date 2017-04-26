@@ -82,4 +82,4 @@ print(tempobject)
 # -- Delete row --
 
 
-DTSchemaStoreSQL.delete_schema_column(tempobject)
+dtschemastoreapp.DTSchemaStoreSQL.delete_schema_column(tempobject)

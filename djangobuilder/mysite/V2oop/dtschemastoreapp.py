@@ -103,12 +103,17 @@ class DTSchemaStoreSQL(object):
 
         pass
 
-    def delete_schema_column(self,dtableobject):
 
-        for x in dtableobject.delete_columns
-        print(dtableobject.delete_columns[x])
-        # old_column = session.query(delete_column[x]).filter_by(id=id).one()
-        # delete(old_column)
+
+
+    def delete_schema_column(dtableobject):
+        tabletodeletefrom = "dt_column_copy" #testing delete for different tables
+        session = sessionmaker(bind=eng)
+
+        for x in dtableobject.delete_columns:
+            print("column id to delete: ", dtableobject.delete_columns[x])
+            col_to_delete = session.query(tabletodeletefrom).filter_by(id=dtableobject.delete_columns[x]).delete()
+            session.commit()
 
 
 
