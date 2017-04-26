@@ -44,7 +44,6 @@ class DTSchemaStoreJSON(object):
 
 
 
-
 class DTSchemaStoreSQL(object):
 
     def __init__(self,name):
@@ -104,10 +103,13 @@ class DTSchemaStoreSQL(object):
 
         pass
 
-    def delete_schema_column(self,id):
-        old_column = session.query(Columns).filter_by(id=id).one()
-        delete(old_column)
-        pass
+    def delete_schema_column(self,dtableobject):
+
+        for x in dtableobject.delete_columns
+        print(dtableobject.delete_columns[x])
+        # old_column = session.query(delete_column[x]).filter_by(id=id).one()
+        # delete(old_column)
+
 
 
 

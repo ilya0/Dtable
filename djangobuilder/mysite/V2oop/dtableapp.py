@@ -51,7 +51,6 @@ class DTable:
 
 
 
-    #method to add a list of columns to be removed by id
     def remove_column(self, name):
         newcolumns = []
 
@@ -65,7 +64,9 @@ class DTable:
         self.columns = newcolumns
 
 
-    def delete_column(self, id):
+
+    #method to add a list of columns to be removed by id
+    def delete_column_list(self, id):
         self.delete_columns.append(id)
         print("columns to delete",self.delete_columns)
 

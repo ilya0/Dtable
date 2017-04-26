@@ -16,8 +16,8 @@ def createobject(name):
     table1.add_column(column1)
     table1.add_column(column2)
     table1.add_column(column3)
-    table1.delete_column(0)
-    table1.delete_column(1)
+    table1.delete_column_list(0)
+    table1.delete_column_list(1)
 
     # table1 should look like dtable1test((column1,integer), (column2,integer))
     # print(table1.get_columns())
@@ -81,3 +81,5 @@ print(tempobject)
 
 # -- Delete row --
 
+
+DTSchemaStoreSQL.delete_schema_column(tempobject)
