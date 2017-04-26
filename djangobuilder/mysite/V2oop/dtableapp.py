@@ -79,27 +79,3 @@ class DTable:
 
 
 
-
-# works with the actual data and modifies the actual data table
-class dtabledata:
-
-    def __init__(self, schema, data_engine):
-        self.schema = schema
-        self.data_engine = data_engine
-
-
-
-
-
-    def get_row_by_id(self,id):
-        # row = self.data_engine.get_row(self.schema,id):
-        row = id
-        return row
-
-
-
-
-    def list_row(self,id):
-        pass
-
-
