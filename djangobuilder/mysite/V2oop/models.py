@@ -31,7 +31,7 @@ class dt_user_table(Base):
 class dt_sheets(Base):
     __tablename__ = 'sheets'
     id = Column(Integer, primary_key=True)
-    table_name = (varchar(100))
+    table_name = (String(100))
     user_id =  Column(Integer, ForeignKey("dt_user_table.id", ondelete='CASCADE'))
     column_name = Column(String(180), unique=True)
     column_sequence = Column(Integer)
@@ -53,7 +53,7 @@ class dt_data(Base):
     column_id = Column(Integer, ForeignKey("dt_sheets.id", ondelete='CASCADE'))
     row_sequence = Column(String(150))
     value = Column(String(150))
-    column_name = Column(varchar(100))
+    column_name = Column(String(150))
 
     # def __init__(self, sheet, column_name, column_type, sequence_number):
     #     self.sheet = sheet

@@ -13,6 +13,8 @@ from sqlalchemy.ext.declarative import declarative_base
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import models
+import sqlalchemy
 
 #what dtschemastore does
 #creates objects of currently populated databases
@@ -105,15 +107,40 @@ class DTSchemaStoreSQL(object):
 
 
 
+    #
+    # def delete_schema_column(self,dtableobject):
+    #     tabletodeletefrom = "dt_column_copy" #testing delete for different tables
+    #     session = sessionmaker(bind=eng)
+    #
+    #
+    #     for x in dtableobject.delete_columns:
+    #         print("column id to delete: ", dtableobject.delete_columns[x])
+    #         col_to_delete = Table(tabletodeletefrom, meta, autoload=True)
+    #
+    #         col_to_delete = self.session.query(tabletodeletefrom).filter_by(id=dtableobject.delete_columns[x]).delete()
+    #
+    #
+    #         self.session.commit()
 
-    def delete_schema_column(dtableobject):
+
+
+    def delete_schema_column(self,dtableobject):
         tabletodeletefrom = "dt_column_copy" #testing delete for different tables
         session = sessionmaker(bind=eng)
 
+
         for x in dtableobject.delete_columns:
-            print("column id to delete: ", dtableobject.delete_columns[x])
-            col_to_delete = session.query(tabletodeletefrom).filter_by(id=dtableobject.delete_columns[x]).delete()
-            session.commit()
+
+
+            col_to_delete = self.session.query(tabletodeletefrom).filter_by(id=dtableobject.delete_columns[x]).delete(col_to_delete)
+
+            # for col in self.session.query(models.Sheets_Schema).filter_by(sheet_id=tabletodeletefrom).all():
+            #     if col.sequence_number > col_to_delete.sequence_number:
+            #         col.sequence_number -= 1
+            # col_to_delete = self.session.query(models.Sheets_Schema).filter_by(id=col_to_delete_id).delete()
+            self.session.commit()
+
+
 
 
 
