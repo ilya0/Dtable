@@ -1,5 +1,12 @@
 # Dtable - Dtable project is to create a airtable type app
 
+Things to update
+-sql commands
+-sqlalchemy commands
+-django project creation steps
+-
+
+
 
 
 
